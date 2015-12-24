@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Authentication View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AuthenticationViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,147 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="mpy-1h-SHI">
+                                <rect key="frame" x="266" y="64" width="69" height="94"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="69" id="U5c-Ir-ykw"/>
+                                    <constraint firstAttribute="height" constant="94" id="xyS-f4-Vev"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDn-6r-CID">
+                                <rect key="frame" x="20" y="279" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KjM-ls-z7r">
+                                <rect key="frame" x="20" y="317" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6D-Ra-ata">
+                                <rect key="frame" x="20" y="355" width="560" height="45"/>
+                                <color key="backgroundColor" red="0.99215686274509807" green="0.71372549019607845" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="SJH-9t-AIG"/>
+                                </constraints>
+                                <state key="normal" title="LOGIN WITH UDACITY">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onUdacityLoginClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qOm-fH-XX6"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On The Map" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jni-Oe-gpt">
+                                <rect key="frame" x="181" y="182" width="238" height="50"/>
+                                <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="42"/>
+                                <color key="textColor" red="1" green="0.75686274509803919" blue="0.027450980392156862" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4V-Ao-aqv">
+                                <rect key="frame" x="20" y="535" width="560" height="45"/>
+                                <color key="backgroundColor" red="0.12149389843384577" green="0.34630969453278659" blue="0.86522435897435901" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="FHo-ek-hsg"/>
+                                </constraints>
+                                <state key="normal" title="LOGIN WITH FACEBOOK">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onFacebookLoginClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Djo-dU-ljo"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="5ii-Dw-8jO">
+                                <rect key="frame" x="290" y="368" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="pRe-lR-edY">
+                                <rect key="frame" x="290" y="548" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVe-bH-ixc">
+                                <rect key="frame" x="208" y="408" width="184" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="184" id="Xfc-9A-heq"/>
+                                </constraints>
+                                <state key="normal" title="Not on Udacity? Sign Up!">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSignUpClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="te4-Tb-LH0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.011764705882352941" green="0.66274509803921566" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="s6D-Ra-ata" secondAttribute="trailing" id="2TY-YW-39F"/>
+                            <constraint firstItem="jni-Oe-gpt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="41o-Dc-Eu6"/>
+                            <constraint firstItem="M4V-Ao-aqv" firstAttribute="height" secondItem="s6D-Ra-ata" secondAttribute="height" id="50W-YO-1Dl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KjM-ls-z7r" secondAttribute="trailing" id="5RM-tw-aAQ"/>
+                            <constraint firstItem="5ii-Dw-8jO" firstAttribute="centerY" secondItem="s6D-Ra-ata" secondAttribute="centerY" id="AFY-xb-XBQ"/>
+                            <constraint firstItem="s6D-Ra-ata" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="E1F-w1-2nc"/>
+                            <constraint firstItem="M4V-Ao-aqv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="F2T-VA-E4x"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YDn-6r-CID" secondAttribute="trailing" id="FEo-hN-30V"/>
+                            <constraint firstItem="KjM-ls-z7r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="KlE-fh-pd3"/>
+                            <constraint firstItem="yVe-bH-ixc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mmi-cx-fNL"/>
+                            <constraint firstItem="mpy-1h-SHI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="OOd-lT-eW9"/>
+                            <constraint firstItem="mpy-1h-SHI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TnA-bi-mwR"/>
+                            <constraint firstItem="pRe-lR-edY" firstAttribute="centerY" secondItem="M4V-Ao-aqv" secondAttribute="centerY" id="aCp-Gp-aqZ"/>
+                            <constraint firstItem="yVe-bH-ixc" firstAttribute="top" secondItem="s6D-Ra-ata" secondAttribute="bottom" constant="8" id="aTD-Nf-sAE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="M4V-Ao-aqv" secondAttribute="bottom" constant="20" id="agm-AA-Q9U"/>
+                            <constraint firstItem="jni-Oe-gpt" firstAttribute="top" secondItem="mpy-1h-SHI" secondAttribute="bottom" constant="24" id="cBD-61-55p"/>
+                            <constraint firstItem="YDn-6r-CID" firstAttribute="top" secondItem="jni-Oe-gpt" secondAttribute="bottom" constant="47" id="dVd-gL-stQ"/>
+                            <constraint firstItem="KjM-ls-z7r" firstAttribute="top" secondItem="YDn-6r-CID" secondAttribute="bottom" constant="8" id="eSM-2K-EEK"/>
+                            <constraint firstItem="YDn-6r-CID" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fZt-Oy-uDf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YDn-6r-CID" secondAttribute="trailing" id="hIs-I7-i6S"/>
+                            <constraint firstItem="YDn-6r-CID" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hLF-VA-GDz"/>
+                            <constraint firstItem="YDn-6r-CID" firstAttribute="top" secondItem="jni-Oe-gpt" secondAttribute="bottom" constant="47" id="hkg-ho-ABA"/>
+                            <constraint firstItem="pRe-lR-edY" firstAttribute="centerX" secondItem="M4V-Ao-aqv" secondAttribute="centerX" id="inc-2j-eTS"/>
+                            <constraint firstItem="s6D-Ra-ata" firstAttribute="top" secondItem="KjM-ls-z7r" secondAttribute="bottom" constant="8" id="jEV-Hm-cMQ"/>
+                            <constraint firstItem="YDn-6r-CID" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lBs-87-eis"/>
+                            <constraint firstItem="5ii-Dw-8jO" firstAttribute="centerX" secondItem="s6D-Ra-ata" secondAttribute="centerX" id="oUM-a8-01Z"/>
+                            <constraint firstItem="YDn-6r-CID" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ptb-4W-qEn"/>
+                            <constraint firstItem="M4V-Ao-aqv" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="tea-4M-6ax"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="dVd-gL-stQ"/>
+                                <exclude reference="fZt-Oy-uDf"/>
+                                <exclude reference="hIs-I7-i6S"/>
+                                <exclude reference="hLF-VA-GDz"/>
+                                <exclude reference="ptb-4W-qEn"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="aiFacebookLogin" destination="pRe-lR-edY" id="5lJ-kv-YqT"/>
+                        <outlet property="aiUdacityLogin" destination="5ii-Dw-8jO" id="4rN-PI-OBd"/>
+                        <outlet property="btnFacebookLogin" destination="M4V-Ao-aqv" id="5zo-ZE-3df"/>
+                        <outlet property="btnUdacityLogin" destination="s6D-Ra-ata" id="vRj-cw-9cR"/>
+                        <outlet property="tfEmail" destination="YDn-6r-CID" id="aH0-EW-gOb"/>
+                        <outlet property="tfPassword" destination="KjM-ls-z7r" id="hdh-WX-Xm5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="325" y="399"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pin" width="60" height="102"/>
+    </resources>
 </document>

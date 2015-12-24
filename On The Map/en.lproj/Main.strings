@@ -1,0 +1,15 @@
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "KjM-ls-z7r"; */
+"KjM-ls-z7r.placeholder" = "Password";
+
+/* Class = "UIButton"; normalTitle = "LOGIN WITH FACEBOOK"; ObjectID = "M4V-Ao-aqv"; */
+"M4V-Ao-aqv.normalTitle" = "LOGIN WITH FACEBOOK";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "YDn-6r-CID"; */
+"YDn-6r-CID.placeholder" = "Email";
+
+/* Class = "UILabel"; text = "On The Map"; ObjectID = "jni-Oe-gpt"; */
+"jni-Oe-gpt.text" = "On The Map";
+
+/* Class = "UIButton"; normalTitle = "LOGIN WITH UDACITY"; ObjectID = "s6D-Ra-ata"; */
+"s6D-Ra-ata.normalTitle" = "LOGIN WITH UDACITY";

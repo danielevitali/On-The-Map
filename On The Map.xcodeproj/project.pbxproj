@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55B49633E913504294C405FB /* NewSessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B49D950B81216174043F0D /* NewSessionRequest.swift */; };
+		55B4982C1173E56508F51C8E /* NewSessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B49754CE70542D98D7A65A /* NewSessionResponse.swift */; };
+		55B49831D21E0C13F522E229 /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B49F2562093981C68C8B89 /* SessionResponse.swift */; };
+		55B499CB86FA90A615B6CB3E /* AccountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4937BF104CC946A70C271 /* AccountResponse.swift */; };
+		55B49C33E94CB94ECA0813F4 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B49562944C913D7AF5DF34 /* NetworkHelper.swift */; };
+		55B49CCD0350624E81F8536A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B49F9BA170E57D07AAC224 /* DataManager.swift */; };
+		64367B6E1C2B010C0033AA71 /* AuthenticationContractPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64367B6D1C2B010C0033AA71 /* AuthenticationContractPresenter.swift */; };
+		64367B701C2B01BE0033AA71 /* AuthenticationContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64367B6F1C2B01BE0033AA71 /* AuthenticationContractView.swift */; };
+		64367B7B1C2B57EA0033AA71 /* AuthenticationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64367B7A1C2B57EA0033AA71 /* AuthenticationPresenter.swift */; };
 		6436BDA21C2AFE0000CA3FCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6436BDA11C2AFE0000CA3FCC /* AppDelegate.swift */; };
 		6436BDA41C2AFE0000CA3FCC /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6436BDA31C2AFE0000CA3FCC /* AuthenticationViewController.swift */; };
 		6436BDA71C2AFE0000CA3FCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6436BDA51C2AFE0000CA3FCC /* Main.storyboard */; };
@@ -34,12 +43,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55B4937BF104CC946A70C271 /* AccountResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountResponse.swift; sourceTree = "<group>"; };
+		55B49562944C913D7AF5DF34 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		55B49754CE70542D98D7A65A /* NewSessionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSessionResponse.swift; sourceTree = "<group>"; };
+		55B49D950B81216174043F0D /* NewSessionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSessionRequest.swift; sourceTree = "<group>"; };
+		55B49F2562093981C68C8B89 /* SessionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
+		55B49F9BA170E57D07AAC224 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		64367B6D1C2B010C0033AA71 /* AuthenticationContractPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationContractPresenter.swift; sourceTree = "<group>"; };
+		64367B6F1C2B01BE0033AA71 /* AuthenticationContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationContractView.swift; sourceTree = "<group>"; };
+		64367B761C2B52480033AA71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		64367B771C2B52480033AA71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		64367B7A1C2B57EA0033AA71 /* AuthenticationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationPresenter.swift; sourceTree = "<group>"; };
 		6436BD9E1C2AFE0000CA3FCC /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6436BDA11C2AFE0000CA3FCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6436BDA31C2AFE0000CA3FCC /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
-		6436BDA61C2AFE0000CA3FCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6436BDA81C2AFE0000CA3FCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6436BDAB1C2AFE0000CA3FCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6436BDAD1C2AFE0000CA3FCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6436BDB21C2AFE0100CA3FCC /* On The MapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "On The MapTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6436BDB61C2AFE0100CA3FCC /* On_The_MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = On_The_MapTests.swift; sourceTree = "<group>"; };
@@ -74,6 +92,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55B491D78267A7F5C6959382 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				55B49562944C913D7AF5DF34 /* NetworkHelper.swift */,
+				55B497E8AEA5E80812719033 /* Requests */,
+				55B49F0B620265B1E3478E9C /* Responses */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		55B495BC93CCB136934DB99D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				55B49F9BA170E57D07AAC224 /* DataManager.swift */,
+				55B491D78267A7F5C6959382 /* Network */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		55B497E8AEA5E80812719033 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				55B49D950B81216174043F0D /* NewSessionRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		55B49F0B620265B1E3478E9C /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				55B49754CE70542D98D7A65A /* NewSessionResponse.swift */,
+				55B4937BF104CC946A70C271 /* AccountResponse.swift */,
+				55B49F2562093981C68C8B89 /* SessionResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		64367B6B1C2B00C00033AA71 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				64367B6C1C2B00C70033AA71 /* Contract */,
+				6436BDA31C2AFE0000CA3FCC /* AuthenticationViewController.swift */,
+				64367B7A1C2B57EA0033AA71 /* AuthenticationPresenter.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		64367B6C1C2B00C70033AA71 /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				64367B6D1C2B010C0033AA71 /* AuthenticationContractPresenter.swift */,
+				64367B6F1C2B01BE0033AA71 /* AuthenticationContractView.swift */,
+			);
+			name = Contract;
+			sourceTree = "<group>";
+		};
 		6436BD951C2AFE0000CA3FCC = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +177,7 @@
 				6436BDA81C2AFE0000CA3FCC /* Assets.xcassets */,
 				6436BDAA1C2AFE0000CA3FCC /* LaunchScreen.storyboard */,
 				6436BDAD1C2AFE0000CA3FCC /* Info.plist */,
+				55B495BC93CCB136934DB99D /* Managers */,
 			);
 			path = "On The Map";
 			sourceTree = "<group>";
@@ -128,7 +203,7 @@
 		6436BDCF1C2AFE7A00CA3FCC /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				6436BDA31C2AFE0000CA3FCC /* AuthenticationViewController.swift */,
+				64367B6B1C2B00C00033AA71 /* Login */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -267,8 +342,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64367B701C2B01BE0033AA71 /* AuthenticationContractView.swift in Sources */,
+				64367B6E1C2B010C0033AA71 /* AuthenticationContractPresenter.swift in Sources */,
+				64367B7B1C2B57EA0033AA71 /* AuthenticationPresenter.swift in Sources */,
 				6436BDA41C2AFE0000CA3FCC /* AuthenticationViewController.swift in Sources */,
 				6436BDA21C2AFE0000CA3FCC /* AppDelegate.swift in Sources */,
+				55B49CCD0350624E81F8536A /* DataManager.swift in Sources */,
+				55B49C33E94CB94ECA0813F4 /* NetworkHelper.swift in Sources */,
+				55B49633E913504294C405FB /* NewSessionRequest.swift in Sources */,
+				55B4982C1173E56508F51C8E /* NewSessionResponse.swift in Sources */,
+				55B499CB86FA90A615B6CB3E /* AccountResponse.swift in Sources */,
+				55B49831D21E0C13F522E229 /* SessionResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +391,7 @@
 		6436BDA51C2AFE0000CA3FCC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6436BDA61C2AFE0000CA3FCC /* Base */,
+				64367B761C2B52480033AA71 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -315,7 +399,7 @@
 		6436BDAA1C2AFE0000CA3FCC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6436BDAB1C2AFE0000CA3FCC /* Base */,
+				64367B771C2B52480033AA71 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -493,6 +577,7 @@
 				6436BDC81C2AFE0100CA3FCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6436BDC91C2AFE0100CA3FCC /* Build configuration list for PBXNativeTarget "On The MapTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +586,7 @@
 				6436BDCB1C2AFE0100CA3FCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6436BDCC1C2AFE0100CA3FCC /* Build configuration list for PBXNativeTarget "On The MapUITests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +595,7 @@
 				6436BDCE1C2AFE0100CA3FCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
