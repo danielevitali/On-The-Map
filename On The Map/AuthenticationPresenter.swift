@@ -25,11 +25,11 @@ class AuthenticationPresenter: AuthenticationContractPresenter {
     }
 
     func onLoginWithFacebookClick() {
-
+        //TODO implement login with facebook
     }
 
     func onSignUpClick() {
-
+        view.openUdacityWebsite()
     }
 
     func onReturnKeyClickTypingUdacityEmail(email: String, password: String) {
@@ -58,6 +58,16 @@ class AuthenticationPresenter: AuthenticationContractPresenter {
 
     private func loginWithUdacity(email: String, password: String) {
         view.logginInWithUdacity()
-
+        DataManager.getInstance().loginAndGetUserInfo(email, password: password, userInfoCompleteHandler: { (account, errorMessage) in
+            self.view.awaitingUserCredentials()
+            if let errorMessage = errorMessage {
+                self.view.showError(errorMessage)
+            } else if let account = account {
+                print("\(account.firstName) \(account.lastName)")
+                self.view.showMap()
+            } else {
+                self.view.showError("Unknown error")
+            }
+        })
     }
 }

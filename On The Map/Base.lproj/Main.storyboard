@@ -25,15 +25,15 @@
                                     <constraint firstAttribute="height" constant="94" id="xyS-f4-Vev"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDn-6r-CID">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YDn-6r-CID">
                                 <rect key="frame" x="20" y="279" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KjM-ls-z7r">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KjM-ls-z7r">
                                 <rect key="frame" x="20" y="317" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6D-Ra-ata">
                                 <rect key="frame" x="20" y="355" width="560" height="45"/>
@@ -147,6 +147,7 @@
                         <outlet property="aiFacebookLogin" destination="pRe-lR-edY" id="5lJ-kv-YqT"/>
                         <outlet property="aiUdacityLogin" destination="5ii-Dw-8jO" id="4rN-PI-OBd"/>
                         <outlet property="btnFacebookLogin" destination="M4V-Ao-aqv" id="5zo-ZE-3df"/>
+                        <outlet property="btnSignUp" destination="yVe-bH-ixc" id="2xv-Wv-arY"/>
                         <outlet property="btnUdacityLogin" destination="s6D-Ra-ata" id="vRj-cw-9cR"/>
                         <outlet property="tfEmail" destination="YDn-6r-CID" id="aH0-EW-gOb"/>
                         <outlet property="tfPassword" destination="KjM-ls-z7r" id="hdh-WX-Xm5"/>

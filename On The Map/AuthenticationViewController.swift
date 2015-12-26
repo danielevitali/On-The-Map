@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKShareKit
+import FBSDKLoginKit
 
 class AuthenticationViewController: UIViewController, UITextFieldDelegate, AuthenticationContractView {
+
+    private static let SHOW_MAP_SEGUE_ID = "showMap"
 
     @IBOutlet weak var tfEmail: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
     @IBOutlet weak var btnUdacityLogin: UIButton!
+    @IBOutlet weak var btnSignUp: UIButton!
     @IBOutlet weak var aiUdacityLogin: UIActivityIndicatorView!
     @IBOutlet weak var btnFacebookLogin: UIButton!
     @IBOutlet weak var aiFacebookLogin: UIActivityIndicatorView!
@@ -25,7 +31,7 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate, Authe
 
         tfEmail.delegate = self
         tfPassword.delegate = self
-
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
     }
@@ -55,37 +61,44 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate, Authe
         tfEmail.enabled = false
         tfPassword.enabled = false
         btnUdacityLogin.enabled = false
+        btnSignUp.enabled = false
         btnFacebookLogin.enabled = false
-        aiUdacityLogin.hidden = false
-        aiFacebookLogin.hidden = true
+        aiUdacityLogin.startAnimating()
+        aiFacebookLogin.stopAnimating()
     }
 
     func logginInWithFacebook() {
         tfEmail.enabled = false
         tfPassword.enabled = false
         btnUdacityLogin.enabled = false
+        btnSignUp.enabled = false
         btnFacebookLogin.enabled = false
-        aiUdacityLogin.hidden = true
-        aiFacebookLogin.hidden = false
+        aiUdacityLogin.stopAnimating()
+        aiFacebookLogin.startAnimating()
     }
 
     func awaitingUserCredentials() {
         tfEmail.enabled = true
         tfPassword.enabled = true
         btnUdacityLogin.enabled = true
+        btnSignUp.enabled = true
         btnFacebookLogin.enabled = true
-        aiUdacityLogin.hidden = true
-        aiFacebookLogin.hidden = true
+        aiUdacityLogin.stopAnimating()
+        aiFacebookLogin.stopAnimating()
     }
 
-    func showNoInternetConnectionError() {
-        let alert = UIAlertController(title: "Error", message: "Check your Internet connection and try again.", preferredStyle: UIAlertControllerStyle.Alert)
+    func openUdacityWebsite() {
+        UIApplication.sharedApplication().openURL(NSURL(string: "http://www.udacity.com/account/auth#!/signup")!)
+    }
+
+    func showError(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
     }
 
     func showInvalidCredentialError() {
-        let alert = UIAlertController(title: "Error", message: "Check your credentials and try again", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Error", message: "Check your email and password and try again", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
     }
@@ -95,7 +108,7 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate, Authe
     }
 
     func showMap() {
-
+        performSegueWithIdentifier(AuthenticationViewController.SHOW_MAP_SEGUE_ID, sender: self)
     }
     
 }

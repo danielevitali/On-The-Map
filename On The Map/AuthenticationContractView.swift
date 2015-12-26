@@ -16,12 +16,14 @@ protocol AuthenticationContractView {
 
     func awaitingUserCredentials()
 
-    func showNoInternetConnectionError()
-
     func showInvalidCredentialError()
 
     func showMap()
 
     func dismissKeyboard()
+
+    func openUdacityWebsite()
+
+    func showError(message: String)
 
 }
