@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55B4919119CF4985EF5EF67F /* DeleteSessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4969276B087692A08AC1F /* DeleteSessionResponse.swift */; };
+		55B4929165C7A0D2AB656B69 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B497C74E5881E2D21615BC /* Account.swift */; };
+		55B495F4ED2E9D02AF32BDA4 /* FetchUserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B49934DDD902240479F81A /* FetchUserDataResponse.swift */; };
 		55B49633E913504294C405FB /* NewSessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B49D950B81216174043F0D /* NewSessionRequest.swift */; };
 		55B4982C1173E56508F51C8E /* NewSessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B49754CE70542D98D7A65A /* NewSessionResponse.swift */; };
 		55B49831D21E0C13F522E229 /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B49F2562093981C68C8B89 /* SessionResponse.swift */; };
 		55B499CB86FA90A615B6CB3E /* AccountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4937BF104CC946A70C271 /* AccountResponse.swift */; };
 		55B49C33E94CB94ECA0813F4 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B49562944C913D7AF5DF34 /* NetworkHelper.swift */; };
 		55B49CCD0350624E81F8536A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B49F9BA170E57D07AAC224 /* DataManager.swift */; };
+		55B49E512B9C66AFFA75FFF1 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4964031C0571C62C1E495 /* UserResponse.swift */; };
 		64367B6E1C2B010C0033AA71 /* AuthenticationContractPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64367B6D1C2B010C0033AA71 /* AuthenticationContractPresenter.swift */; };
 		64367B701C2B01BE0033AA71 /* AuthenticationContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64367B6F1C2B01BE0033AA71 /* AuthenticationContractView.swift */; };
 		64367B7B1C2B57EA0033AA71 /* AuthenticationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64367B7A1C2B57EA0033AA71 /* AuthenticationPresenter.swift */; };
@@ -45,7 +49,11 @@
 /* Begin PBXFileReference section */
 		55B4937BF104CC946A70C271 /* AccountResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountResponse.swift; sourceTree = "<group>"; };
 		55B49562944C913D7AF5DF34 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		55B4964031C0571C62C1E495 /* UserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		55B4969276B087692A08AC1F /* DeleteSessionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteSessionResponse.swift; sourceTree = "<group>"; };
 		55B49754CE70542D98D7A65A /* NewSessionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSessionResponse.swift; sourceTree = "<group>"; };
+		55B497C74E5881E2D21615BC /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		55B49934DDD902240479F81A /* FetchUserDataResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchUserDataResponse.swift; sourceTree = "<group>"; };
 		55B49D950B81216174043F0D /* NewSessionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSessionRequest.swift; sourceTree = "<group>"; };
 		55B49F2562093981C68C8B89 /* SessionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
 		55B49F9BA170E57D07AAC224 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -119,12 +127,23 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
+		55B49C314B67D72EF0A2510B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				55B497C74E5881E2D21615BC /* Account.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		55B49F0B620265B1E3478E9C /* Responses */ = {
 			isa = PBXGroup;
 			children = (
 				55B49754CE70542D98D7A65A /* NewSessionResponse.swift */,
 				55B4937BF104CC946A70C271 /* AccountResponse.swift */,
 				55B49F2562093981C68C8B89 /* SessionResponse.swift */,
+				55B49934DDD902240479F81A /* FetchUserDataResponse.swift */,
+				55B4964031C0571C62C1E495 /* UserResponse.swift */,
+				55B4969276B087692A08AC1F /* DeleteSessionResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -178,6 +197,7 @@
 				6436BDAA1C2AFE0000CA3FCC /* LaunchScreen.storyboard */,
 				6436BDAD1C2AFE0000CA3FCC /* Info.plist */,
 				55B495BC93CCB136934DB99D /* Managers */,
+				55B49C314B67D72EF0A2510B /* Models */,
 			);
 			path = "On The Map";
 			sourceTree = "<group>";
@@ -353,6 +373,10 @@
 				55B4982C1173E56508F51C8E /* NewSessionResponse.swift in Sources */,
 				55B499CB86FA90A615B6CB3E /* AccountResponse.swift in Sources */,
 				55B49831D21E0C13F522E229 /* SessionResponse.swift in Sources */,
+				55B495F4ED2E9D02AF32BDA4 /* FetchUserDataResponse.swift in Sources */,
+				55B49E512B9C66AFFA75FFF1 /* UserResponse.swift in Sources */,
+				55B4919119CF4985EF5EF67F /* DeleteSessionResponse.swift in Sources */,
+				55B4929165C7A0D2AB656B69 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

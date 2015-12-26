@@ -5,13 +5,11 @@
 
 import Foundation
 
-class SessionResponse {
+class DeleteSessionResponse {
 
-    let id: String
-    let expiration: String
+    let session: SessionResponse
 
     init(response: NSDictionary) {
-        id = response["id"] as! String
-        expiration = response["expiration"] as! String
+        session = SessionResponse(response: response["session"] as! NSDictionary)
     }
 }

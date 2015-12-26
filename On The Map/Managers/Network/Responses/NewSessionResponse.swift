@@ -11,7 +11,7 @@ class NewSessionResponse {
     let session: SessionResponse
 
     init(response: NSDictionary) {
-        account = AccountResponse(response["account"])
-        session = AccountResponse(response["session"])
+        account = AccountResponse(response: response["account"] as! NSDictionary)
+        session = SessionResponse(response: response["session"] as! NSDictionary)
     }
 }

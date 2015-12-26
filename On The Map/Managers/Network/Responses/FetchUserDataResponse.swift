@@ -5,13 +5,11 @@
 
 import Foundation
 
-class SessionResponse {
+class FetchUserDataResponse {
 
-    let id: String
-    let expiration: String
+    let user: UserResponse
 
     init(response: NSDictionary) {
-        id = response["id"] as! String
-        expiration = response["expiration"] as! String
+        user = UserResponse(response: response["user"] as! NSDictionary)
     }
 }

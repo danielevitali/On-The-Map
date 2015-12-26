@@ -7,11 +7,11 @@ import Foundation
 
 class AccountResponse {
 
-    let id: Bool
-    let expiration: String
+    let registered: Bool
+    let key: String
 
     init(response: NSDictionary) {
-        id = response["id"] as! String
-        expiration = response["expiration"] as! String
+        registered = response["registered"] as! Bool
+        key = response["key"] as! String
     }
 }
