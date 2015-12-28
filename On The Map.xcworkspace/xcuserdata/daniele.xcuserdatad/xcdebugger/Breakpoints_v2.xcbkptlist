@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "127"
             endingLineNumber = "127"
-            landmarkName = "executePostRequest(_:body:completionHandler:)"
+            landmarkName = "executeUdacityPostRequest(_:body:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
             endingLineNumber = "134"
-            landmarkName = "executePostRequest(_:body:completionHandler:)"
+            landmarkName = "executeUdacityPostRequest(_:body:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

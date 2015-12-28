@@ -8,9 +8,20 @@ import Foundation
 class NetworkHelper {
 
     private static let BASE_UDACITY_URL = "https://www.udacity.com/api"
-
-    private static let SESSION_PATH = "/session"
-    private static let USER_DATA_PATH = "/users/{id}"
+    private static let UDACITY_SESSION_PATH = "/session"
+    private static let UDACITY_USER_DATA_PATH = "/users/{id}"
+    
+    private static let BASE_PARSE_URL = "https://api.parse.com/1"
+    private static let PARSE_STUDENT_LOCATIONS_PATH = "/classes/StudentLocation"
+    private static let PARSE_STUDENT_LOCATION_PATH = "/classes/StudentLocation/{id}"
+    
+    private static let APPLICATION_JSON_HEADER_VALUE = "application/json"
+    private static let CONTENT_TYPE_HEADER_NAME = "Content-Type"
+    private static let ACCEPT_HEADER_NAME = "Accept"
+    private static let PARSE_APP_ID_HEADER_NAME = "X-Parse-Application-Id"
+    private static let PARSE_APP_ID_HEADER_VALUE = "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"
+    private static let PARSE_API_KEY_HEADER_NAME = "X-Parse-REST-API-Key"
+    private static let PARSE_API_KEY_HEADER_VALUE = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
 
     private static let instance = NetworkHelper()
 
@@ -25,11 +36,11 @@ class NetworkHelper {
     }
 
     func createNewSession(requestBody: NewSessionRequest, callback: (newSessionResponse: NewSessionResponse?, errorResponse: ErrorResponse?) -> Void) {
-        let url = buildUdacityUrl(NetworkHelper.SESSION_PATH, params: nil)
-        executePostRequest(url, body: requestBody.convertToJson(), completionHandler: {
+        let url = buildUdacityUrl(NetworkHelper.UDACITY_SESSION_PATH, params: nil)
+        executeUdacityPostRequest(url, body: requestBody.convertToJson(), completionHandler: {
             (data, response, error) in
             if let response = response, let data = data{
-                let json = self.extractJson(data)
+                let json = self.extractUdacityJson(data)
                 if response.statusCode == 200 {
                     let newSessionResponse = NewSessionResponse(response: json)
                     callback(newSessionResponse: newSessionResponse, errorResponse: nil)
@@ -45,11 +56,11 @@ class NetworkHelper {
     }
 
     func createNewSession(requestBody: NewSessionWithFacebookRequest, callback: (newSessionResponse: NewSessionResponse?, errorResponse: ErrorResponse?) -> Void) {
-        let url = buildUdacityUrl(NetworkHelper.SESSION_PATH, params: nil)
-        executePostRequest(url, body: requestBody.convertToJson(), completionHandler: {
+        let url = buildUdacityUrl(NetworkHelper.UDACITY_SESSION_PATH, params: nil)
+        executeUdacityPostRequest(url, body: requestBody.convertToJson(), completionHandler: {
             (data, response, error) in
             if let response = response, let data = data{
-                let json = self.extractJson(data)
+                let json = self.extractUdacityJson(data)
                 if response.statusCode == 200 {
                     let newSessionResponse = NewSessionResponse(response: json)
                     callback(newSessionResponse: newSessionResponse, errorResponse: nil)
@@ -65,13 +76,12 @@ class NetworkHelper {
     }
 
     func fetchUserData(id: String, callback: (fetchUserDataResponse: FetchUserDataResponse?, errorResponse: ErrorResponse?) -> Void) {
-        var path = NetworkHelper.USER_DATA_PATH
-        path.replaceRange(path.rangeOfString("{id}")!, with: id)
+        let path = replacePlaceholderPathWithId(path: NetworkHelper.UDACITY_USER_DATA_PATH, id: id)
         let url = buildUdacityUrl(path, params: nil)
-        executeGetRequest(url, completionHandler: {
+        executeUdacityGetRequest(url, completionHandler: {
             (data, response, error) in
             if let response = response, let data = data{
-                let json = self.extractJson(data)
+                let json = self.extractUdacityJson(data)
                 if response.statusCode == 200 {
                     let fetchUserDataResponse = FetchUserDataResponse(response: json)
                     callback(fetchUserDataResponse: fetchUserDataResponse, errorResponse: nil)
@@ -87,11 +97,11 @@ class NetworkHelper {
     }
 
     func deleteSession(callback: (deleteSessionResponse: DeleteSessionResponse?, errorResponse: ErrorResponse?) -> Void) {
-        let url = buildUdacityUrl(NetworkHelper.SESSION_PATH, params: nil)
-        executeDeleteRequest(url, completionHandler: {
+        let url = buildUdacityUrl(NetworkHelper.UDACITY_SESSION_PATH, params: nil)
+        executeUdacityDeleteRequest(url, completionHandler: {
             (data, response, error) in
             if let response = response, let data = data{
-                let json = self.extractJson(data)
+                let json = self.extractUdacityJson(data)
                 if response.statusCode == 200 {
                     let deleteSessionResponse = DeleteSessionResponse(response: json)
                     callback(deleteSessionResponse: deleteSessionResponse, errorResponse: nil)
@@ -105,6 +115,46 @@ class NetworkHelper {
             }
         })
     }
+    
+    func fetchStudentLocations(callback: (studentLocationsResponse: StudentLocationsResponse?, errorResponse: ErrorResponse?) -> Void) {
+        let url = buildParseUrl(NetworkHelper.PARSE_STUDENT_LOCATIONS_PATH, params: nil)
+        executeUdacityGetRequest(url, completionHandler: {
+            (data, response, error) in
+            if let response = response, let data = data{
+                let json = self.extractParseJson(data)
+                if response.statusCode == 200 {
+                    let studentLocationsResponse = StudentLocationsResponse(response: json)
+                    callback(studentLocationsResponse: studentLocationsResponse, errorResponse: nil)
+                } else {
+                    let errorResponse = ErrorResponse(response: json)
+                    callback(studentLocationsResponse: nil, errorResponse: errorResponse)
+                }
+            } else {
+                let errorResponse = ErrorResponse(error: error!)
+                callback(studentLocationsResponse: nil, errorResponse: errorResponse)
+            }
+        })
+    }
+    
+    func updateStudentLocation(studentLocationRequest: StudentLocationRequest, callback: (studentLocationsResponse: StudentLocationsResponse?, errorResponse: ErrorResponse?) -> Void) {
+        let url = buildParseUrl(NetworkHelper.PARSE_STUDENT_LOCATIONS_PATH, params: nil)
+        executeUdacityPostRequest(url, studentLocationRequest.convertToJson(), completionHandler: {
+            (data, response, error) in
+            if let response = response, let data = data{
+                let json = self.extractParseJson(data)
+                if response.statusCode == 200 {
+                    let studentLocationsResponse = StudentLocationsResponse(response: json)
+                    callback(studentLocationsResponse: studentLocationsResponse, errorResponse: nil)
+                } else {
+                    let errorResponse = ErrorResponse(response: json)
+                    callback(studentLocationsResponse: nil, errorResponse: errorResponse)
+                }
+            } else {
+                let errorResponse = ErrorResponse(error: error!)
+                callback(studentLocationsResponse: nil, errorResponse: errorResponse)
+            }
+        })
+    }
 
     private func buildUdacityUrl(path: String, params: [String:String]?) -> NSURL {
         if let params = params {
@@ -113,29 +163,29 @@ class NetworkHelper {
         return NSURL(string: (NetworkHelper.BASE_UDACITY_URL + path))!
     }
 
-    private func executeGetRequest(url: NSURL, completionHandler: (data:NSData?, response: NSHTTPURLResponse?, error:NSError?) -> Void) {
+    private func executeUdacityGetRequest(url: NSURL, completionHandler: (data:NSData?, response: NSHTTPURLResponse?, error:NSError?) -> Void) {
         let request = NSMutableURLRequest(URL: url)
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(NetworkHelper.APPLICATION_JSON_HEADER_VALUE, forHTTPHeaderField: NetworkHelper.ACCEPT_HEADER_NAME)
+        request.addValue(NetworkHelper.APPLICATION_JSON_HEADER_VALUE, forHTTPHeaderField: NetworkHelper.CONTENT_TYPE_HEADER_NAME)
         sharedSession.dataTaskWithRequest(request, completionHandler: {
             (data, response, error) in
             completionHandler(data: data, response: response as? NSHTTPURLResponse, error: error)
         }).resume()
     }
 
-    private func executePostRequest(url: NSURL, body: String, completionHandler: (data:NSData?, response: NSHTTPURLResponse?, error:NSError?) -> Void) {
+    private func executeUdacityPostRequest(url: NSURL, body: String, completionHandler: (data:NSData?, response: NSHTTPURLResponse?, error:NSError?) -> Void) {
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "POST"
         request.HTTPBody = body.dataUsingEncoding(NSUTF8StringEncoding)
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(NetworkHelper.APPLICATION_JSON_HEADER_VALUE, forHTTPHeaderField: NetworkHelper.ACCEPT_HEADER_NAME)
+        request.addValue(NetworkHelper.APPLICATION_JSON_HEADER_VALUE, forHTTPHeaderField: NetworkHelper.CONTENT_TYPE_HEADER_NAME)
         sharedSession.dataTaskWithRequest(request, completionHandler: {
             (data, response, error) in
             completionHandler(data: data, response: response as? NSHTTPURLResponse, error: error)
         }).resume()
     }
 
-    private func executeDeleteRequest(url: NSURL, completionHandler: (data: NSData?, response: NSHTTPURLResponse?, error: NSError?) -> Void) {
+    private func executeUdacityDeleteRequest(url: NSURL, completionHandler: (data: NSData?, response: NSHTTPURLResponse?, error: NSError?) -> Void) {
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "DELETE"
         var xsrfCookie: NSHTTPCookie? = nil
@@ -153,6 +203,36 @@ class NetworkHelper {
             completionHandler(data: data, response: response as? NSHTTPURLResponse, error: error)
         }).resume()
     }
+    
+    private func buildParseUrl(path: String, params: [String:String]?) -> NSURL {
+        if let params = params {
+            return NSURL(string: (NetworkHelper.BASE_PARSE_URL + path + escapedParameters(params)))!
+        }
+        return NSURL(string: (NetworkHelper.BASE_PARSE_URL + path))!
+    }
+    
+    private func executeParseGetRequest(url: NSURL, completionHandler: (data:NSData?, response: NSHTTPURLResponse?, error:NSError?) -> Void) {
+        let request = NSMutableURLRequest(URL: url)
+        request.addValue(NetworkHelper.PARSE_APP_ID_HEADER_VALUE, forHTTPHeaderField: NetworkHelper.PARSE_APP_ID_HEADER_NAME)
+        request.addValue(NetworkHelper.PARSE_API_KEY_HEADER_VALUE, forHTTPHeaderField: NetworkHelper.PARSE_API_KEY_HEADER_NAME)
+        sharedSession.dataTaskWithRequest(request, completionHandler: {
+            (data, response, error) in
+            completionHandler(data: data, response: response as? NSHTTPURLResponse, error: error)
+        }).resume()
+    }
+    
+    private func executeParsePostRequest(url: NSURL, body: String, completionHandler: (data:NSData?, response: NSHTTPURLResponse?, error:NSError?) -> Void) {
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = body.dataUsingEncoding(NSUTF8StringEncoding)
+        request.addValue(NetworkHelper.PARSE_APP_ID_HEADER_VALUE, forHTTPHeaderField: NetworkHelper.PARSE_APP_ID_HEADER_NAME)
+        request.addValue(NetworkHelper.PARSE_API_KEY_HEADER_VALUE, forHTTPHeaderField: NetworkHelper.PARSE_API_KEY_HEADER_NAME)
+        request.addValue(NetworkHelper.APPLICATION_JSON_HEADER_VALUE, forHTTPHeaderField: NetworkHelper.CONTENT_TYPE_HEADER_NAME)
+        sharedSession.dataTaskWithRequest(request, completionHandler: {
+            (data, response, error) in
+            completionHandler(data: data, response: response as? NSHTTPURLResponse, error: error)
+        }).resume()
+    }
 
     private func escapedParameters(parameters: [String:String]) -> String {
         var urlVars = [String]()
@@ -163,8 +243,18 @@ class NetworkHelper {
         return (urlVars.isEmpty ? "" : "?") + urlVars.joinWithSeparator("&")
     }
 
-    private func extractJson(data: NSData) -> NSDictionary {
+    private func extractUdacityJson(data: NSData) -> NSDictionary {
         let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5))
         return try! NSJSONSerialization.JSONObjectWithData(newData, options: .AllowFragments) as! NSDictionary
+    }
+    
+    private func extractParseJson(data: NSData) -> NSDictionary {
+        return try! NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
+    }
+    
+    private func replacePlaceholderPathWithId(path oldPath:String, id: String) -> String {
+        var path = oldPath
+        path.replaceRange(path.rangeOfString("{id}")!, with: id)
+        return path
     }
 }

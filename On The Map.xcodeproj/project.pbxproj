@@ -31,6 +31,9 @@
 		6436BDC21C2AFE0100CA3FCC /* On_The_MapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6436BDC11C2AFE0100CA3FCC /* On_The_MapUITests.swift */; };
 		646DFE211C317D950042F5D8 /* Pods_On_The_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 646DFE201C317D950042F5D8 /* Pods_On_The_Map.framework */; };
 		646DFE241C318CA50042F5D8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646DFE231C318CA50042F5D8 /* HomeViewController.swift */; };
+		647351771C31A04C0031D218 /* StudentLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647351761C31A04C0031D218 /* StudentLocationResponse.swift */; };
+		647351791C31A1620031D218 /* StudentLocationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647351781C31A1620031D218 /* StudentLocationsResponse.swift */; };
+		6473517B1C31A2B10031D218 /* StudentLocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6473517A1C31A2B10031D218 /* StudentLocationRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +85,9 @@
 		6436BDC31C2AFE0100CA3FCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		646DFE201C317D950042F5D8 /* Pods_On_The_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_On_The_Map.framework; path = "Pods/../build/Release-iphoneos/Pods_On_The_Map.framework"; sourceTree = "<group>"; };
 		646DFE231C318CA50042F5D8 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		647351761C31A04C0031D218 /* StudentLocationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationResponse.swift; sourceTree = "<group>"; };
+		647351781C31A1620031D218 /* StudentLocationsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationsResponse.swift; sourceTree = "<group>"; };
+		6473517A1C31A2B10031D218 /* StudentLocationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocationRequest.swift; sourceTree = "<group>"; };
 		A58792DB14B0CDF4835DF242 /* Pods-On The Map.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-On The Map.debug.xcconfig"; path = "Pods/Target Support Files/Pods-On The Map/Pods-On The Map.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +150,7 @@
 			children = (
 				55B49D950B81216174043F0D /* NewSessionRequest.swift */,
 				55B49FC3377B4ACBA531730F /* NewSessionWithFacebookRequest.swift */,
+				6473517A1C31A2B10031D218 /* StudentLocationRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -166,6 +173,8 @@
 				55B4964031C0571C62C1E495 /* UserResponse.swift */,
 				55B4969276B087692A08AC1F /* DeleteSessionResponse.swift */,
 				55B49427485D9800F03C4E02 /* ErrorResponse.swift */,
+				647351761C31A04C0031D218 /* StudentLocationResponse.swift */,
+				647351781C31A1620031D218 /* StudentLocationsResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -448,18 +457,21 @@
 			files = (
 				64367B701C2B01BE0033AA71 /* AuthenticationContractView.swift in Sources */,
 				64367B6E1C2B010C0033AA71 /* AuthenticationContractPresenter.swift in Sources */,
+				647351771C31A04C0031D218 /* StudentLocationResponse.swift in Sources */,
 				64367B7B1C2B57EA0033AA71 /* AuthenticationPresenter.swift in Sources */,
 				6436BDA41C2AFE0000CA3FCC /* AuthenticationViewController.swift in Sources */,
 				6436BDA21C2AFE0000CA3FCC /* AppDelegate.swift in Sources */,
 				646DFE241C318CA50042F5D8 /* HomeViewController.swift in Sources */,
 				55B49CCD0350624E81F8536A /* DataManager.swift in Sources */,
 				55B49C33E94CB94ECA0813F4 /* NetworkHelper.swift in Sources */,
+				6473517B1C31A2B10031D218 /* StudentLocationRequest.swift in Sources */,
 				55B49633E913504294C405FB /* NewSessionRequest.swift in Sources */,
 				55B4982C1173E56508F51C8E /* NewSessionResponse.swift in Sources */,
 				55B499CB86FA90A615B6CB3E /* AccountResponse.swift in Sources */,
 				55B49831D21E0C13F522E229 /* SessionResponse.swift in Sources */,
 				55B495F4ED2E9D02AF32BDA4 /* FetchUserDataResponse.swift in Sources */,
 				55B49E512B9C66AFFA75FFF1 /* UserResponse.swift in Sources */,
+				647351791C31A1620031D218 /* StudentLocationsResponse.swift in Sources */,
 				55B4919119CF4985EF5EF67F /* DeleteSessionResponse.swift in Sources */,
 				55B4929165C7A0D2AB656B69 /* Account.swift in Sources */,
 				55B490C2AE0556C4253C65EC /* ErrorResponse.swift in Sources */,

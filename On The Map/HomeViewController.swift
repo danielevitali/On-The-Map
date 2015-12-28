@@ -11,4 +11,12 @@ import UIKit
 
 class HomeViewController: UITabBarController {
     
+    
+
+    @IBAction func onUpdateLocationClick(sender: AnyObject) {
+    }
+    @IBAction func onRefreshClick(sender: AnyObject) {
+    }
+    @IBAction func onLogoutClick(sender: AnyObject) {
+    }
 }
