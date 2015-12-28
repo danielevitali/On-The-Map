@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		323A413EB02CC6C868AEC75D /* Pods_On_The_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46908034D2157604DC35E743 /* Pods_On_The_Map.framework */; };
 		55B490C2AE0556C4253C65EC /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B49427485D9800F03C4E02 /* ErrorResponse.swift */; };
 		55B4919119CF4985EF5EF67F /* DeleteSessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4969276B087692A08AC1F /* DeleteSessionResponse.swift */; };
 		55B4929165C7A0D2AB656B69 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B497C74E5881E2D21615BC /* Account.swift */; };
@@ -30,10 +29,8 @@
 		6436BDAC1C2AFE0000CA3FCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6436BDAA1C2AFE0000CA3FCC /* LaunchScreen.storyboard */; };
 		6436BDB71C2AFE0100CA3FCC /* On_The_MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6436BDB61C2AFE0100CA3FCC /* On_The_MapTests.swift */; };
 		6436BDC21C2AFE0100CA3FCC /* On_The_MapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6436BDC11C2AFE0100CA3FCC /* On_The_MapUITests.swift */; };
-		64B650BC1C2F4B6800793E32 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64B650B81C2F4B6800793E32 /* Bolts.framework */; };
-		64B650BD1C2F4B6800793E32 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64B650B91C2F4B6800793E32 /* FBSDKCoreKit.framework */; };
-		64B650BE1C2F4B6800793E32 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64B650BA1C2F4B6800793E32 /* FBSDKLoginKit.framework */; };
-		64B650BF1C2F4B6800793E32 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64B650BB1C2F4B6800793E32 /* FBSDKShareKit.framework */; };
+		646DFE211C317D950042F5D8 /* Pods_On_The_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 646DFE201C317D950042F5D8 /* Pods_On_The_Map.framework */; };
+		646DFE241C318CA50042F5D8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646DFE231C318CA50042F5D8 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +52,6 @@
 
 /* Begin PBXFileReference section */
 		367531602E4A4DD202CE9CAC /* Pods-On The Map.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-On The Map.release.xcconfig"; path = "Pods/Target Support Files/Pods-On The Map/Pods-On The Map.release.xcconfig"; sourceTree = "<group>"; };
-		46908034D2157604DC35E743 /* Pods_On_The_Map.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_On_The_Map.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B4937BF104CC946A70C271 /* AccountResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountResponse.swift; sourceTree = "<group>"; };
 		55B49427485D9800F03C4E02 /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		55B49562944C913D7AF5DF34 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
@@ -84,10 +80,8 @@
 		6436BDBD1C2AFE0100CA3FCC /* On The MapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "On The MapUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6436BDC11C2AFE0100CA3FCC /* On_The_MapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = On_The_MapUITests.swift; sourceTree = "<group>"; };
 		6436BDC31C2AFE0100CA3FCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		64B650B81C2F4B6800793E32 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "Pods/../build/Debug-iphoneos/Bolts.framework"; sourceTree = "<group>"; };
-		64B650B91C2F4B6800793E32 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "Pods/../build/Debug-iphoneos/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
-		64B650BA1C2F4B6800793E32 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "Pods/../build/Debug-iphoneos/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
-		64B650BB1C2F4B6800793E32 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "Pods/../build/Debug-iphoneos/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		646DFE201C317D950042F5D8 /* Pods_On_The_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_On_The_Map.framework; path = "Pods/../build/Release-iphoneos/Pods_On_The_Map.framework"; sourceTree = "<group>"; };
+		646DFE231C318CA50042F5D8 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A58792DB14B0CDF4835DF242 /* Pods-On The Map.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-On The Map.debug.xcconfig"; path = "Pods/Target Support Files/Pods-On The Map/Pods-On The Map.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,11 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64B650BC1C2F4B6800793E32 /* Bolts.framework in Frameworks */,
-				64B650BD1C2F4B6800793E32 /* FBSDKCoreKit.framework in Frameworks */,
-				64B650BE1C2F4B6800793E32 /* FBSDKLoginKit.framework in Frameworks */,
-				64B650BF1C2F4B6800793E32 /* FBSDKShareKit.framework in Frameworks */,
-				323A413EB02CC6C868AEC75D /* Pods_On_The_Map.framework in Frameworks */,
+				646DFE211C317D950042F5D8 /* Pods_On_The_Map.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,18 +111,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		16BD3BBC19AF9FE347674AAF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				64B650B81C2F4B6800793E32 /* Bolts.framework */,
-				64B650B91C2F4B6800793E32 /* FBSDKCoreKit.framework */,
-				64B650BA1C2F4B6800793E32 /* FBSDKLoginKit.framework */,
-				64B650BB1C2F4B6800793E32 /* FBSDKShareKit.framework */,
-				46908034D2157604DC35E743 /* Pods_On_The_Map.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		509031FA2ADD0CF5C2903DA8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,12 +192,12 @@
 		6436BD951C2AFE0000CA3FCC = {
 			isa = PBXGroup;
 			children = (
+				646DFE201C317D950042F5D8 /* Pods_On_The_Map.framework */,
 				6436BDA01C2AFE0000CA3FCC /* On The Map */,
 				6436BDB51C2AFE0100CA3FCC /* On The MapTests */,
 				6436BDC01C2AFE0100CA3FCC /* On The MapUITests */,
-				6436BD9F1C2AFE0000CA3FCC /* Products */,
 				509031FA2ADD0CF5C2903DA8 /* Pods */,
-				16BD3BBC19AF9FE347674AAF /* Frameworks */,
+				6436BD9F1C2AFE0000CA3FCC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,9 +216,7 @@
 			children = (
 				6436BDCF1C2AFE7A00CA3FCC /* UI */,
 				6436BDA11C2AFE0000CA3FCC /* AppDelegate.swift */,
-				6436BDA51C2AFE0000CA3FCC /* Main.storyboard */,
 				6436BDA81C2AFE0000CA3FCC /* Assets.xcassets */,
-				6436BDAA1C2AFE0000CA3FCC /* LaunchScreen.storyboard */,
 				6436BDAD1C2AFE0000CA3FCC /* Info.plist */,
 				55B495BC93CCB136934DB99D /* Managers */,
 				55B49C314B67D72EF0A2510B /* Models */,
@@ -269,9 +245,20 @@
 		6436BDCF1C2AFE7A00CA3FCC /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				646DFE221C318C8A0042F5D8 /* Home */,
+				6436BDA51C2AFE0000CA3FCC /* Main.storyboard */,
+				6436BDAA1C2AFE0000CA3FCC /* LaunchScreen.storyboard */,
 				64367B6B1C2B00C00033AA71 /* Login */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		646DFE221C318C8A0042F5D8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				646DFE231C318CA50042F5D8 /* HomeViewController.swift */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,6 +451,7 @@
 				64367B7B1C2B57EA0033AA71 /* AuthenticationPresenter.swift in Sources */,
 				6436BDA41C2AFE0000CA3FCC /* AuthenticationViewController.swift in Sources */,
 				6436BDA21C2AFE0000CA3FCC /* AppDelegate.swift in Sources */,
+				646DFE241C318CA50042F5D8 /* HomeViewController.swift in Sources */,
 				55B49CCD0350624E81F8536A /* DataManager.swift in Sources */,
 				55B49C33E94CB94ECA0813F4 /* NetworkHelper.swift in Sources */,
 				55B49633E913504294C405FB /* NewSessionRequest.swift in Sources */,
@@ -621,6 +609,7 @@
 					"$(PROJECT_DIR)",
 					"\"${PROJECT_DIR}/FacebookSDKs-iOS-20151111\"/**",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
 				);
 				INFOPLIST_FILE = "On The Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -639,6 +628,7 @@
 					"$(PROJECT_DIR)",
 					"\"${PROJECT_DIR}/FacebookSDKs-iOS-20151111\"/**",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
 				);
 				INFOPLIST_FILE = "On The Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

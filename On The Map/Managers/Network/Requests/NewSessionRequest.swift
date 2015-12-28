@@ -16,7 +16,7 @@ class NewSessionRequest {
     }
 
     func convertToJson() -> String {
-        return "{\"username\":\"\(email)\",\"password\":\"\(password)\"}"
+        return "{\"udacity\": {\"username\": \"\(email)\", \"password\": \"\(password)\"}}"
     }
 
 }

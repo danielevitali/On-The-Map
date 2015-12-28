@@ -7,13 +7,13 @@ import Foundation
 
 class Account {
 
-    var sessionId: String
+    var id: String
     var firstName: String!
     var lastName: String!
     var nickname: String!
 
-    init(sessionId: String) {
-        self.sessionId = sessionId
+    init(id: String) {
+        self.id = id
     }
 
 }

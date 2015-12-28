@@ -64,8 +64,10 @@ class NetworkHelper {
         })
     }
 
-    func fetchUserData(callback: (fetchUserDataResponse: FetchUserDataResponse?, errorResponse: ErrorResponse?) -> Void) {
-        let url = buildUdacityUrl(NetworkHelper.USER_DATA_PATH, params: nil)
+    func fetchUserData(id: String, callback: (fetchUserDataResponse: FetchUserDataResponse?, errorResponse: ErrorResponse?) -> Void) {
+        var path = NetworkHelper.USER_DATA_PATH
+        path.replaceRange(path.rangeOfString("{id}")!, with: id)
+        let url = buildUdacityUrl(path, params: nil)
         executeGetRequest(url, completionHandler: {
             (data, response, error) in
             if let response = response, let data = data{

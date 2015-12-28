@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import FBSDKCoreKit
-import FBSDKShareKit
-import FBSDKLoginKit
 
 class AuthenticationViewController: UIViewController, UITextFieldDelegate, AuthenticationContractView {
 
     private static let SHOW_MAP_SEGUE_ID = "showMap"
+    private static let BTN_UDACITY_LOGIN_TEXT = "LOGIN WITH UDACITY"
+    private static let BTN_FACEBOOK_LOGIN_TEXT = "LOGIN WITH FACEBOOK"
 
     @IBOutlet weak var tfEmail: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
@@ -61,6 +60,7 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate, Authe
         tfEmail.enabled = false
         tfPassword.enabled = false
         btnUdacityLogin.enabled = false
+        btnUdacityLogin.setTitle("", forState: .Normal)
         btnSignUp.enabled = false
         btnFacebookLogin.enabled = false
         aiUdacityLogin.startAnimating()
@@ -73,6 +73,7 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate, Authe
         btnUdacityLogin.enabled = false
         btnSignUp.enabled = false
         btnFacebookLogin.enabled = false
+        btnFacebookLogin.setTitle("", forState: .Normal)
         aiUdacityLogin.stopAnimating()
         aiFacebookLogin.startAnimating()
     }
@@ -81,8 +82,10 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate, Authe
         tfEmail.enabled = true
         tfPassword.enabled = true
         btnUdacityLogin.enabled = true
+        btnUdacityLogin.setTitle(AuthenticationViewController.BTN_UDACITY_LOGIN_TEXT, forState: .Normal)
         btnSignUp.enabled = true
         btnFacebookLogin.enabled = true
+        btnFacebookLogin.setTitle(AuthenticationViewController.BTN_FACEBOOK_LOGIN_TEXT, forState: .Normal)
         aiUdacityLogin.stopAnimating()
         aiFacebookLogin.stopAnimating()
     }

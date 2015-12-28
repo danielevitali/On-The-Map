@@ -5,10 +5,10 @@ use_frameworks!
 
 target 'On The Map' do
 
-pod 'Bolts'
-pod 'FBSDKCoreKit'
-pod 'FBSDKLoginKit'
-pod 'FBSDKShareKit'
+pod 'Bolts', '1.5.0'
+pod 'FBSDKCoreKit', '4.8.0'
+pod 'FBSDKLoginKit', '4.8.0'
+pod 'FBSDKShareKit', '4.8.0'
 
 end
 

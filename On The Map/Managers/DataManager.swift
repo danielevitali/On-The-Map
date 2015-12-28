@@ -25,9 +25,9 @@ class DataManager {
         networkHelper.createNewSession(requestBody, callback: {
             (newSessionResponse, errorResponse) in
             if let newSessionResponse = newSessionResponse {
-                let sessionId = newSessionResponse.session.id
-                self.account = Account(sessionId: sessionId)
-                self.getUserInfo(sessionId, userInfoCompleteHandler: userInfoCompleteHandler)
+                let accountKey = newSessionResponse.account.key
+                self.account = Account(id: accountKey)
+                self.getUserInfo(accountKey, userInfoCompleteHandler: userInfoCompleteHandler)
             } else {
                 dispatch_async(dispatch_get_main_queue(), {
                     userInfoCompleteHandler(account: nil, errorMessage: errorResponse!.error)
@@ -41,9 +41,9 @@ class DataManager {
         networkHelper.createNewSession(requestBody, callback: {
             (newSessionResponse, errorResponse) in
             if let newSessionResponse = newSessionResponse {
-                let sessionId = newSessionResponse.session.id
-                self.account = Account(sessionId: sessionId)
-                self.getUserInfo(sessionId, userInfoCompleteHandler: userInfoCompleteHandler)
+                let accountKey = newSessionResponse.account.key
+                self.account = Account(id: accountKey)
+                self.getUserInfo(accountKey, userInfoCompleteHandler: userInfoCompleteHandler)
             } else {
                 dispatch_async(dispatch_get_main_queue(), {
                     userInfoCompleteHandler(account: nil, errorMessage: errorResponse!.error)
@@ -52,8 +52,8 @@ class DataManager {
         })
     }
 
-    private func getUserInfo(sessionId: String, userInfoCompleteHandler: (account: Account?, errorMessage: String?) -> Void) {
-        networkHelper.fetchUserData({
+    private func getUserInfo(accountId: String, userInfoCompleteHandler: (account: Account?, errorMessage: String?) -> Void) {
+        networkHelper.fetchUserData(accountId, callback: {
             (fetchUserDataResponse, errorResponse) in
             if let fetchUserDataResponse = fetchUserDataResponse {
                 let user = fetchUserDataResponse.user
