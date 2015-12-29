@@ -14,6 +14,9 @@ class AuthenticationPresenter: AuthenticationContractPresenter {
 
     init(view: AuthenticationContractView) {
         self.view = view
+        if DataManager.getInstance().getUserInfo() != nil {
+            view.showMap()
+        }
     }
 
     func onLoginWithUdacityClick(email: String, password: String) {
@@ -62,11 +65,12 @@ class AuthenticationPresenter: AuthenticationContractPresenter {
             self.view.awaitingUserCredentials()
             if let errorMessage = errorMessage {
                 self.view.showError(errorMessage)
-            } else if let account = account {
-                print("\(account.firstName) \(account.lastName)")
+            } else  {
+                guard account != nil else {
+                    self.view.showError("Unknown error")
+                    return
+                }
                 self.view.showMap()
-            } else {
-                self.view.showError("Unknown error")
             }
         })
     }

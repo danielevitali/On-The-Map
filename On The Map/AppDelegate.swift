@@ -15,7 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let initialViewController: UIViewController
+        
+        if DataManager.getInstance().getUserInfo() == nil {
+            initialViewController = storyboard.instantiateViewControllerWithIdentifier("authenticationViewController")
+        } else {
+            initialViewController = storyboard.instantiateViewControllerWithIdentifier("locationsNavigationViewController")
+        }
+        
+        window!.rootViewController = initialViewController;
+        window!.makeKeyAndVisible();
+        
         return true
     }
 

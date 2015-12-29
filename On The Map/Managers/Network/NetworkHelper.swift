@@ -118,7 +118,7 @@ class NetworkHelper {
     
     func fetchStudentLocations(callback: (studentLocationsResponse: StudentLocationsResponse?, errorResponse: ErrorResponse?) -> Void) {
         let url = buildParseUrl(NetworkHelper.PARSE_STUDENT_LOCATIONS_PATH, params: nil)
-        executeUdacityGetRequest(url, completionHandler: {
+        executeParseGetRequest(url, completionHandler: {
             (data, response, error) in
             if let response = response, let data = data{
                 let json = self.extractParseJson(data)
@@ -136,9 +136,9 @@ class NetworkHelper {
         })
     }
     
-    func updateStudentLocation(studentLocationRequest: StudentLocationRequest, callback: (studentLocationsResponse: StudentLocationsResponse?, errorResponse: ErrorResponse?) -> Void) {
+    func setStudentLocation(studentLocationRequest: StudentLocationRequest, callback: (studentLocationsResponse: StudentLocationsResponse?, errorResponse: ErrorResponse?) -> Void) {
         let url = buildParseUrl(NetworkHelper.PARSE_STUDENT_LOCATIONS_PATH, params: nil)
-        executeUdacityPostRequest(url, studentLocationRequest.convertToJson(), completionHandler: {
+        executeParsePostRequest(url, body: studentLocationRequest.convertToJson(), completionHandler: {
             (data, response, error) in
             if let response = response, let data = data{
                 let json = self.extractParseJson(data)
@@ -155,7 +155,49 @@ class NetworkHelper {
             }
         })
     }
-
+    
+    func fetchStudentLocation(uniqueKey: String, callback: (studentLocationResponse: StudentLocationResponse?, errorResponse: ErrorResponse?) -> Void) {
+        let params = ["where": "{\"uniqueKey\": \"\(uniqueKey)\"}"]
+        let url = buildParseUrl(NetworkHelper.PARSE_STUDENT_LOCATIONS_PATH, params: params)
+        executeParseGetRequest(url, completionHandler: {
+            (data, response, error) in
+            if let response = response, let data = data{
+                let json = self.extractParseJson(data)
+                if response.statusCode == 200 {
+                    let studentLocationResponse = StudentLocationResponse(response: json)
+                    callback(studentLocationResponse: studentLocationResponse, errorResponse: nil)
+                } else {
+                    let errorResponse = ErrorResponse(response: json)
+                    callback(studentLocationResponse: nil, errorResponse: errorResponse)
+                }
+            } else {
+                let errorResponse = ErrorResponse(error: error!)
+                callback(studentLocationResponse: nil, errorResponse: errorResponse)
+            }
+        })
+    }
+    
+    func changeStudentLocation(id: String, studentLocationRequest: StudentLocationRequest, callback: (studentLocationsResponse: StudentLocationsResponse?, errorResponse: ErrorResponse?) -> Void) {
+        let path = replacePlaceholderPathWithId(path: NetworkHelper.PARSE_STUDENT_LOCATION_PATH, id: id)
+        let url = buildParseUrl(path, params: nil)
+        executeParsePutRequest(url, body: studentLocationRequest.convertToJson(), completionHandler: {
+            (data, response, error) in
+            if let response = response, let data = data{
+                let json = self.extractParseJson(data)
+                if response.statusCode == 200 {
+                    let studentLocationsResponse = StudentLocationsResponse(response: json)
+                    callback(studentLocationsResponse: studentLocationsResponse, errorResponse: nil)
+                } else {
+                    let errorResponse = ErrorResponse(response: json)
+                    callback(studentLocationsResponse: nil, errorResponse: errorResponse)
+                }
+            } else {
+                let errorResponse = ErrorResponse(error: error!)
+                callback(studentLocationsResponse: nil, errorResponse: errorResponse)
+            }
+        })
+    }
+    
     private func buildUdacityUrl(path: String, params: [String:String]?) -> NSURL {
         if let params = params {
             return NSURL(string: (NetworkHelper.BASE_UDACITY_URL + path + escapedParameters(params)))!
@@ -224,6 +266,19 @@ class NetworkHelper {
     private func executeParsePostRequest(url: NSURL, body: String, completionHandler: (data:NSData?, response: NSHTTPURLResponse?, error:NSError?) -> Void) {
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "POST"
+        request.HTTPBody = body.dataUsingEncoding(NSUTF8StringEncoding)
+        request.addValue(NetworkHelper.PARSE_APP_ID_HEADER_VALUE, forHTTPHeaderField: NetworkHelper.PARSE_APP_ID_HEADER_NAME)
+        request.addValue(NetworkHelper.PARSE_API_KEY_HEADER_VALUE, forHTTPHeaderField: NetworkHelper.PARSE_API_KEY_HEADER_NAME)
+        request.addValue(NetworkHelper.APPLICATION_JSON_HEADER_VALUE, forHTTPHeaderField: NetworkHelper.CONTENT_TYPE_HEADER_NAME)
+        sharedSession.dataTaskWithRequest(request, completionHandler: {
+            (data, response, error) in
+            completionHandler(data: data, response: response as? NSHTTPURLResponse, error: error)
+        }).resume()
+    }
+    
+    private func executeParsePutRequest(url: NSURL, body: String, completionHandler: (data:NSData?, response: NSHTTPURLResponse?, error:NSError?) -> Void) {
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "PUT"
         request.HTTPBody = body.dataUsingEncoding(NSUTF8StringEncoding)
         request.addValue(NetworkHelper.PARSE_APP_ID_HEADER_VALUE, forHTTPHeaderField: NetworkHelper.PARSE_APP_ID_HEADER_NAME)
         request.addValue(NetworkHelper.PARSE_API_KEY_HEADER_VALUE, forHTTPHeaderField: NetworkHelper.PARSE_API_KEY_HEADER_NAME)

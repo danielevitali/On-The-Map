@@ -17,6 +17,7 @@ class StudentLocationResponse {
     let mediaUrl: String
     let latitude: Float
     let longitude: Float
+    let uniqueKey: String
     
     init(response: NSDictionary) {
         objectId = response["objectId"] as! String
@@ -26,6 +27,7 @@ class StudentLocationResponse {
         mediaUrl = response["mediaUrl"] as! String
         latitude = response["latitude"] as! Float
         longitude = response["longitude"] as! Float
+        uniqueKey = response["uniqueKey"] as! String
     }
     
 }
