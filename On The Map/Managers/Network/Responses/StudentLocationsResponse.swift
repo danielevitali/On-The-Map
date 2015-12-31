@@ -10,10 +10,14 @@ import Foundation
 
 class StudentLocationsResponse {
     
-    let results: [StudentLocationResponse]
+    var results: [StudentLocationResponse]
     
     init(response: NSDictionary) {
-        results = response["results"] as! [StudentLocationResponse]
+        self.results = [StudentLocationResponse]()
+        let array = response["results"] as! NSArray
+        for element in array {
+            results.append(StudentLocationResponse(response: element as! NSDictionary))
+        }
     }
     
 }

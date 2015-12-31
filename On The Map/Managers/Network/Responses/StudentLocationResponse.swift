@@ -14,7 +14,7 @@ class StudentLocationResponse {
     let firstName: String
     let lastName: String
     let mapString: String
-    let mediaUrl: String
+    let mediaUrl: String?
     let latitude: Float
     let longitude: Float
     let uniqueKey: String
@@ -24,7 +24,7 @@ class StudentLocationResponse {
         firstName = response["firstName"] as! String
         lastName = response["lastName"] as! String
         mapString = response["mapString"] as! String
-        mediaUrl = response["mediaUrl"] as! String
+        mediaUrl = response["mediaUrl"] as? String
         latitude = response["latitude"] as! Float
         longitude = response["longitude"] as! Float
         uniqueKey = response["uniqueKey"] as! String
