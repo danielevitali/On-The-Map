@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class LocationsPresenter: LocationsContractPresenter {
     
@@ -25,7 +27,8 @@ class LocationsPresenter: LocationsContractPresenter {
     }
     
     func onLogoutClick() {
-        
+        FBSDKLoginManager().logOut()
+        DataManager.getInstance().clearUserInfo()
     }
     
 }

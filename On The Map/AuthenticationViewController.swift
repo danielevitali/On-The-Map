@@ -40,7 +40,7 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate, Authe
     }
 
     @IBAction func onFacebookLoginClick(sender: AnyObject) {
-        presenter.onLoginWithFacebookClick()
+        presenter.onLoginWithFacebookClick(self)
     }
 
     @IBAction func onSignUpClick(sender: AnyObject) {

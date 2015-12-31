@@ -26,4 +26,9 @@ class UserDefaultsUtils {
         return nil
     }
     
+    static func clearAccount() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.removeObjectForKey(UserDefaultsUtils.KEY_ACCOUNT)
+    }
+    
 }

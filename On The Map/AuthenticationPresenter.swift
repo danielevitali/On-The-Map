@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class AuthenticationPresenter: AuthenticationContractPresenter {
 
@@ -27,8 +30,27 @@ class AuthenticationPresenter: AuthenticationContractPresenter {
         loginWithUdacity(email, password: password)
     }
 
-    func onLoginWithFacebookClick() {
-        //TODO implement login with facebook
+    func onLoginWithFacebookClick(viewController: UIViewController) {
+        view.logginInWithFacebook()
+        FBSDKLoginManager().logInWithReadPermissions(["public_profile"], fromViewController: viewController, handler: { (result, error) -> Void in
+            
+            guard error == nil else {
+                FBSDKLoginManager().logOut()
+                self.view.awaitingUserCredentials()
+                self.view.showError("Error logging in with Facebook")
+                return
+            }
+            
+            guard !result.isCancelled else {
+                FBSDKLoginManager().logOut()
+                self.view.awaitingUserCredentials()
+                return
+            }
+            
+            let fbToken = result.token.tokenString
+            
+            self.loginWithFacebook(fbToken)
+        })
     }
 
     func onSignUpClick() {
@@ -61,7 +83,26 @@ class AuthenticationPresenter: AuthenticationContractPresenter {
 
     private func loginWithUdacity(email: String, password: String) {
         view.logginInWithUdacity()
-        DataManager.getInstance().loginAndGetUserInfo(email, password: password, userInfoCompleteHandler: { (account, errorMessage) in
+        DataManager.getInstance().loginAndGetUserInfo(email, password: password, userInfoCompleteHandler: { (account, errorMessage) -> Void in
+            self.view.awaitingUserCredentials()
+            if let errorMessage = errorMessage {
+                self.view.showError(errorMessage)
+            } else  {
+                guard account != nil else {
+                    self.view.showError("Unknown error")
+                    return
+                }
+                self.view.showMap()
+            }
+        })
+    }
+    
+    /*
+    HOW CAN I EXTRACT THE SAME CODE IN userInfoCompleteHandler FOR THE ABOVE AND BELOW FUNCTIONS INTO A SINGLE CLOSURE? SO THAT I DON'T HAVE TO WRITE THE SAME CODE TWICE.
+    */
+    
+    private func loginWithFacebook(facebookToken: String) {
+        DataManager.getInstance().loginAndGetUserInfo(facebookToken, userInfoCompleteHandler: { (account, errorMessage) -> Void in
             self.view.awaitingUserCredentials()
             if let errorMessage = errorMessage {
                 self.view.showError(errorMessage)

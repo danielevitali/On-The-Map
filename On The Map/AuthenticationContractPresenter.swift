@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 protocol AuthenticationContractPresenter {
 
     func onLoginWithUdacityClick(email: String, password: String)
 
-    func onLoginWithFacebookClick()
+    func onLoginWithFacebookClick(viewController: UIViewController)
 
     func onSignUpClick()
 

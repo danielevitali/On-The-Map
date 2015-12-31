@@ -71,7 +71,15 @@ class DataManager {
     }
     
     func getUserInfo() -> Account? {
-        return UserDefaultsUtils.getAccount()
+        if account == nil {
+            account = UserDefaultsUtils.getAccount()
+        }
+        return account
+    }
+    
+    func clearUserInfo() {
+        account = nil
+        UserDefaultsUtils.clearAccount()
     }
     
     func getStudentLocations(studentLocationsCompleteHandler: (studentLocations: [StudentLocation]?, errorMessage: String?) -> Void) {
