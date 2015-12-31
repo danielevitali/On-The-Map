@@ -12,4 +12,6 @@ protocol LocationsContractView {
     
     func showUpdateLocation()
     
+    func showAuthentication()
+    
 }

@@ -15,8 +15,8 @@ class StudentLocationResponse {
     let lastName: String
     let mapString: String
     let mediaUrl: String?
-    let latitude: Float
-    let longitude: Float
+    let latitude: Double
+    let longitude: Double
     let uniqueKey: String
     
     init(response: NSDictionary) {
@@ -24,9 +24,9 @@ class StudentLocationResponse {
         firstName = response["firstName"] as! String
         lastName = response["lastName"] as! String
         mapString = response["mapString"] as! String
-        mediaUrl = response["mediaUrl"] as? String
-        latitude = response["latitude"] as! Float
-        longitude = response["longitude"] as! Float
+        mediaUrl = response["mediaURL"] as? String
+        latitude = response["latitude"] as! Double
+        longitude = response["longitude"] as! Double
         uniqueKey = response["uniqueKey"] as! String
     }
     

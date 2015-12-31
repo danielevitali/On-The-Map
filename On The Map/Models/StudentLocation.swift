@@ -13,8 +13,8 @@ class StudentLocation {
     let id: String
     let firstName: String
     let lastName: String
-    let latitude: Float
-    let longitude: Float
+    let latitude: Double
+    let longitude: Double
     let address: String
     let url: String?
     let uniqueKey: String
@@ -26,8 +26,17 @@ class StudentLocation {
         self.latitude = studentLocationResponse.latitude
         self.longitude = studentLocationResponse.longitude
         self.address = studentLocationResponse.mapString
-        self.url = studentLocationResponse.mediaUrl
         self.uniqueKey = studentLocationResponse.uniqueKey
+        
+        if let mediaUrl = studentLocationResponse.mediaUrl {
+            
+            //Check that media URL is actually a valid URL
+            if NSURL(string: mediaUrl) != nil {
+                self.url = studentLocationResponse.mediaUrl
+                return
+            }
+        }
+        self.url = nil
     }
     
 }

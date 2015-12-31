@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "On The Map/Managers/Network/NetworkHelper.swift"
-            timestampString = "473006995.923745"
+            filePath = "On The Map/Managers/Network/Responses/StudentLocationResponse.swift"
+            timestampString = "473273081.597578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "fetchStudentLocations(_:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "init(response:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "On The Map/Managers/Network/NetworkHelper.swift"
-            timestampString = "473006995.923745"
+            filePath = "On The Map/Managers/Network/Responses/StudentLocationResponse.swift"
+            timestampString = "473276829.90166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "fetchStudentLocations(_:)"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "init(response:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "On The Map/Managers/Network/NetworkHelper.swift"
-            timestampString = "473003875.642773"
+            filePath = "On The Map/Models/Pin.swift"
+            timestampString = "473281112.562199"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "getInstance()"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "createAnnotationView()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "On The Map/Managers/Network/NetworkHelper.swift"
-            timestampString = "473032168.366174"
+            filePath = "On The Map/Models/Pin.swift"
+            timestampString = "473281112.562199"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "fetchStudentLocations(_:)"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "createAnnotationView()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,109 +73,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "On The Map/AuthenticationPresenter.swift"
-            timestampString = "473265525.610378"
+            filePath = "On The Map/Models/Pin.swift"
+            timestampString = "473281112.562199"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "init(view:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "On The Map/Managers/DataManager.swift"
-            timestampString = "473034779.660201"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "getUserInfo(_:userInfoCompleteHandler:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "On The Map/AuthenticationViewController.swift"
-            timestampString = "473034956.773211"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "showMap()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "On The Map/AuthenticationPresenter.swift"
-            timestampString = "473265821.137141"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "onLoginWithFacebookClick(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "On The Map/Managers/DataManager.swift"
-            timestampString = "473269745.866388"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "getStudentLocations(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "On The Map/Managers/DataManager.swift"
-            timestampString = "473272450.963388"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "getStudentLocations(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "On The Map/Managers/DataManager.swift"
-            timestampString = "473272450.963388"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "getStudentLocations(_:)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "createAnnotationView()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

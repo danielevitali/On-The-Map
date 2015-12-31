@@ -20,6 +20,7 @@
 		55B49CCD0350624E81F8536A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B49F9BA170E57D07AAC224 /* DataManager.swift */; };
 		55B49E512B9C66AFFA75FFF1 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4964031C0571C62C1E495 /* UserResponse.swift */; };
 		640923611C31E67D00FEFD64 /* UserDefaultsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640923601C31E67D00FEFD64 /* UserDefaultsUtils.swift */; };
+		6422FCD41C35983B00B40E47 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6422FCD31C35983B00B40E47 /* Pin.swift */; };
 		64367B6E1C2B010C0033AA71 /* AuthenticationContractPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64367B6D1C2B010C0033AA71 /* AuthenticationContractPresenter.swift */; };
 		64367B701C2B01BE0033AA71 /* AuthenticationContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64367B6F1C2B01BE0033AA71 /* AuthenticationContractView.swift */; };
 		64367B7B1C2B57EA0033AA71 /* AuthenticationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64367B7A1C2B57EA0033AA71 /* AuthenticationPresenter.swift */; };
@@ -78,6 +79,7 @@
 		55B49F9BA170E57D07AAC224 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		55B49FC3377B4ACBA531730F /* NewSessionWithFacebookRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSessionWithFacebookRequest.swift; sourceTree = "<group>"; };
 		640923601C31E67D00FEFD64 /* UserDefaultsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtils.swift; sourceTree = "<group>"; };
+		6422FCD31C35983B00B40E47 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		64367B6D1C2B010C0033AA71 /* AuthenticationContractPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationContractPresenter.swift; sourceTree = "<group>"; };
 		64367B6F1C2B01BE0033AA71 /* AuthenticationContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationContractView.swift; sourceTree = "<group>"; };
 		64367B761C2B52480033AA71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				55B497C74E5881E2D21615BC /* Account.swift */,
 				64764DE01C31D9E4009BF72D /* StudentLocation.swift */,
+				6422FCD31C35983B00B40E47 /* Pin.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				55B490C2AE0556C4253C65EC /* ErrorResponse.swift in Sources */,
 				55B494CF15829E35E1395BC1 /* NewSessionWithFacebookRequest.swift in Sources */,
 				64764DDB1C31D7F5009BF72D /* LocationsMapContractPresenter.swift in Sources */,
+				6422FCD41C35983B00B40E47 /* Pin.swift in Sources */,
 				64764DD91C31D7D9009BF72D /* LocationsMapContractView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

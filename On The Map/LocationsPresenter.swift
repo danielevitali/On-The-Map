@@ -29,6 +29,7 @@ class LocationsPresenter: LocationsContractPresenter {
     func onLogoutClick() {
         FBSDKLoginManager().logOut()
         DataManager.getInstance().clearUserInfo()
+        view.showAuthentication()
     }
     
 }
