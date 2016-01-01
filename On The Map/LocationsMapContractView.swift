@@ -10,6 +10,9 @@ import Foundation
 
 protocol LocationsMapContractView {
     
+    var presenter: LocationsMapContractPresenter! {get}
+    
     func toggleActivityIndicator(visible: Bool)
     
+    func showLocations(studentLocations: [StudentLocation]?)
 }

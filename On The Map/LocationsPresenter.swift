@@ -23,7 +23,7 @@ class LocationsPresenter: LocationsContractPresenter {
     func onRefreshLocationsClick() {
         tabPresenter.refreshingLocations()
         DataManager.getInstance().forceUpdateStudentLocations { (studentLocations, errorMessage) -> Void in
-            self.tabPresenter.locationsRefreshed(nil)
+            self.tabPresenter.showLocations(nil)
             if let errorMessage = errorMessage {
                 self.view.showError(errorMessage)
             } else  {
@@ -31,7 +31,7 @@ class LocationsPresenter: LocationsContractPresenter {
                     self.view.showError("Unknown error")
                     return
                 }
-                self.tabPresenter.locationsRefreshed(studentLocations)
+                self.tabPresenter.showLocations(studentLocations)
             }
         }
     }

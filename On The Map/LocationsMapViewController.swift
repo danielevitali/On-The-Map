@@ -13,6 +13,7 @@ import MapKit
 class LocationsMapViewController: UIViewController, LocationsMapContractView, MKMapViewDelegate {
     
     @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var presenter: LocationsMapContractPresenter!
     var studentLocations: [StudentLocation]?
@@ -59,6 +60,18 @@ class LocationsMapViewController: UIViewController, LocationsMapContractView, MK
         if let url = pin.url {
             UIApplication.sharedApplication().openURL(NSURL(string: url)!)
         }
+    }
+    
+    func toggleActivityIndicator(visible: Bool) {
+        if visible {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+        }
+    }
+    
+    func showLocations(studentLocations: [StudentLocation]?) {
+        //TODO show locations on map
     }
     
 }

@@ -17,7 +17,7 @@ class LocationsViewController: UITabBarController, LocationsContractView{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = LocationsPresenter(view: self)
+        presenter = LocationsPresenter(view: self, tabPresenter: )
     }
 
     @IBAction func onUpdateLocationClick(sender: AnyObject) {
