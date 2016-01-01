@@ -10,5 +10,12 @@ import Foundation
 
 protocol LocationsTabContractView {
     
+    var presenter: LocationsTabContractPresenter! {get set}
+    
+    func toggleActivityIndicator(visible: Bool)
+    
+    func showLocations(studentLocations: [StudentLocation]?)
+    
+    func showError(message: String)
     
 }

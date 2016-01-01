@@ -179,7 +179,7 @@
         <!--Item 2-->
         <scene sceneID="WrT-Fj-zG1">
             <objects>
-                <viewController id="Z1k-sg-hao" sceneMemberID="viewController">
+                <viewController id="Z1k-sg-hao" customClass="LocationsListViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DLV-dd-MbZ"/>
                         <viewControllerLayoutGuide type="bottom" id="sno-gw-WZn"/>
@@ -206,7 +206,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CdG-GX-b2N">
-                                                    <rect key="frame" x="66" y="44.5" width="0.0" height="0.0"/>
+                                                    <rect key="frame" x="66" y="44" width="0.0" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -222,10 +222,20 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Z1k-sg-hao" id="cfs-y5-QtB"/>
+                                    <outlet property="delegate" destination="Z1k-sg-hao" id="7pP-UM-FVz"/>
+                                </connections>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="nt0-LW-gX9">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                             </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No student locations found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4D-IR-LQH">
+                                <rect key="frame" x="196.5" y="290.5" width="207" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -233,11 +243,18 @@
                             <constraint firstItem="nt0-LW-gX9" firstAttribute="centerX" secondItem="KaX-jS-7OQ" secondAttribute="centerX" id="0kp-LF-AEq"/>
                             <constraint firstItem="TPA-iK-HVp" firstAttribute="leading" secondItem="KaX-jS-7OQ" secondAttribute="leading" id="8jS-kv-m4d"/>
                             <constraint firstItem="TPA-iK-HVp" firstAttribute="top" secondItem="DLV-dd-MbZ" secondAttribute="bottom" id="Yoy-VI-zny"/>
+                            <constraint firstItem="B4D-IR-LQH" firstAttribute="centerY" secondItem="KaX-jS-7OQ" secondAttribute="centerY" id="abW-bv-Xc8"/>
                             <constraint firstItem="nt0-LW-gX9" firstAttribute="centerY" secondItem="KaX-jS-7OQ" secondAttribute="centerY" id="irC-0T-nZU"/>
                             <constraint firstItem="sno-gw-WZn" firstAttribute="top" secondItem="TPA-iK-HVp" secondAttribute="bottom" id="kxP-tJ-L0e"/>
+                            <constraint firstItem="B4D-IR-LQH" firstAttribute="centerX" secondItem="KaX-jS-7OQ" secondAttribute="centerX" id="oBh-RU-Tpk"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="vSe-fq-Ng9"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="nt0-LW-gX9" id="Y29-hu-GiG"/>
+                        <outlet property="lblNoLocations" destination="B4D-IR-LQH" id="PKG-WI-829"/>
+                        <outlet property="tblLocations" destination="TPA-iK-HVp" id="Iqz-9r-Soi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1h-sE-FQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

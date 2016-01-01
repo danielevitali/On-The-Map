@@ -10,7 +10,9 @@ import Foundation
 
 protocol LocationsTabContractPresenter {
     
-    var view: LocationsMapContractView {get}
+    var view: LocationsTabContractView {get}
+    
+    func loadLocations()
     
     func refreshingLocations()
     

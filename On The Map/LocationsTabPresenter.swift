@@ -8,11 +8,11 @@
 
 import Foundation
 
-class LocationsMapPresenter: LocationsMapContractPresenter {
+class LocationsTabPresenter: LocationsTabContractPresenter {
     
-    let view: LocationsMapContractView
+    let view: LocationsTabContractView
     
-    init(view: LocationsMapContractView) {
+    init(view: LocationsTabContractView) {
         self.view = view
     }
     

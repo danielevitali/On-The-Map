@@ -20,7 +20,7 @@ class LocationsViewController: UITabBarController, LocationsContractView {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        let currentView = selectedViewController as! LocationsMapContractView
+        let currentView = selectedViewController as! LocationsTabContractView
         presenter.tabPresenter = currentView.presenter
     }
 

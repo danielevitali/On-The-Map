@@ -10,17 +10,17 @@ import Foundation
 import UIKit
 import MapKit
 
-class LocationsMapViewController: UIViewController, LocationsMapContractView, MKMapViewDelegate {
+class LocationsMapViewController: UIViewController, LocationsTabContractView, MKMapViewDelegate {
     
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var presenter: LocationsMapContractPresenter!
+    var presenter: LocationsTabContractPresenter!
     var studentLocations: [StudentLocation]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = LocationsMapPresenter(view: self)
+        presenter = LocationsTabPresenter(view: self)
         map.delegate = self
         
         presenter.loadLocations()
