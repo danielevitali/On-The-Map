@@ -21,8 +21,8 @@ class StudentLocation {
     
     init(studentLocationResponse: StudentLocationResponse) {
         self.id = studentLocationResponse.objectId
-        self.firstName = studentLocationResponse.objectId
-        self.lastName = studentLocationResponse.objectId
+        self.firstName = studentLocationResponse.firstName
+        self.lastName = studentLocationResponse.lastName
         self.latitude = studentLocationResponse.latitude
         self.longitude = studentLocationResponse.longitude
         self.address = studentLocationResponse.mapString

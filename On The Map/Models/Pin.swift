@@ -27,15 +27,14 @@ class Pin: NSObject, MKAnnotation {
     
     func createAnnotationView() -> MKPinAnnotationView {
         let pinView = MKPinAnnotationView(annotation: self, reuseIdentifier: Pin.VIEW_ID)
-        pinView.pinTintColor = UIColor(red: 3, green: 169, blue: 244, alpha: 1)
+        pinView.pinTintColor = UIColor.blueColor()
         
-        guard url != nil else {
-            return pinView
+        if url == nil {
+            pinView.canShowCallout = false
+        } else {
+            pinView.canShowCallout = true
+            pinView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
         }
-        
-        pinView.canShowCallout = true
-        pinView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
-        
         return pinView
     }
 }
