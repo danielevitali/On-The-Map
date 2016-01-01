@@ -11,6 +11,8 @@ import UIKit
 
 protocol AuthenticationContractPresenter {
 
+    var view: AuthenticationContractView {get}
+    
     func onLoginWithUdacityClick(email: String, password: String)
 
     func onLoginWithFacebookClick(viewController: UIViewController)

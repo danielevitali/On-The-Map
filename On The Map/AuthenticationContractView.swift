@@ -10,6 +10,8 @@ import Foundation
 
 protocol AuthenticationContractView {
 
+    var presenter: AuthenticationContractPresenter! {get set}
+    
     func logginInWithUdacity()
 
     func logginInWithFacebook()

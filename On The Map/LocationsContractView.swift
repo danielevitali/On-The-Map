@@ -10,6 +10,10 @@ import Foundation
 
 protocol LocationsContractView {
     
+    var presenter: LocationsContractPresenter! {get}
+    
+    func showError(message: String)
+    
     func showUpdateLocation()
     
     func showAuthentication()

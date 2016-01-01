@@ -10,4 +10,6 @@ import Foundation
 
 protocol LocationsMapContractView {
     
+    func toggleActivityIndicator(visible: Bool)
+    
 }

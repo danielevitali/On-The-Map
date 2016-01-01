@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LocationsMapPresenter: LocationsMapContractPresenter {
+class LocationsMapPresenter: LocationsMapContractPresenter, LocationsTabContractPresenter {
     
     private let view: LocationsMapContractView
     

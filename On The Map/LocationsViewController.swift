@@ -13,7 +13,7 @@ class LocationsViewController: UITabBarController, LocationsContractView{
     
     private static let SHOW_AUTHENTICATION_SEGUE_ID = "showAuthentication"
     
-    private var presenter: LocationsContractPresenter!
+    var presenter: LocationsContractPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class LocationsViewController: UITabBarController, LocationsContractView{
     }
 
     @IBAction func onUpdateLocationClick(sender: AnyObject) {
-        presenter.onUpdateLocationClick()
+        presenter.onUpdateUserLocationClick()
     }
     
     @IBAction func onRefreshClick(sender: AnyObject) {
@@ -38,5 +38,9 @@ class LocationsViewController: UITabBarController, LocationsContractView{
     
     func showAuthentication() {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func showError(message: String) {
+        ErrorAlert(message: message).show(self)
     }
 }

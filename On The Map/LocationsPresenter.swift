@@ -12,18 +12,32 @@ import FBSDKLoginKit
 
 class LocationsPresenter: LocationsContractPresenter {
     
-    private let view: LocationsContractView
+    let view: LocationsContractView
+    var tabPresenter: LocationsTabContractPresenter
     
-    init(view: LocationsContractView) {
+    init(view: LocationsContractView, tabPresenter: LocationsTabContractPresenter) {
         self.view = view
+        self.tabPresenter = tabPresenter
     }
     
     func onRefreshLocationsClick() {
-        
+        tabPresenter.refreshingLocations()
+        DataManager.getInstance().forceUpdateStudentLocations { (studentLocations, errorMessage) -> Void in
+            self.tabPresenter.locationsRefreshed(nil)
+            if let errorMessage = errorMessage {
+                self.view.showError(errorMessage)
+            } else  {
+                guard studentLocations != nil else {
+                    self.view.showError("Unknown error")
+                    return
+                }
+                self.tabPresenter.locationsRefreshed(studentLocations)
+            }
+        }
     }
     
-    func onUpdateLocationClick() {
-        
+    func onUpdateUserLocationClick() {
+        view.showUpdateLocation()
     }
     
     func onLogoutClick() {

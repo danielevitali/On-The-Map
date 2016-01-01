@@ -22,7 +22,7 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate, Authe
     @IBOutlet weak var btnFacebookLogin: UIButton!
     @IBOutlet weak var aiFacebookLogin: UIActivityIndicatorView!
 
-    private var presenter: AuthenticationContractPresenter!
+    var presenter: AuthenticationContractPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,15 +95,11 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate, Authe
     }
 
     func showError(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+        ErrorAlert(message: message).show(self)
     }
 
     func showInvalidCredentialError() {
-        let alert = UIAlertController(title: "Error", message: "Check your email and password and try again", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+        ErrorAlert(message: "Check your email and password and try again").show(self)
     }
 
     func dismissKeyboard() {
