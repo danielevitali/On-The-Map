@@ -9,14 +9,17 @@
 import Foundation
 import UIKit
 
-class ErrorAlert: UIAlertController {
+class ErrorAlert {
+    
+    let message: String
     
     init(message: String) {
-        super.init(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        self.message = message
     }
     
     func show(viewController: UIViewController) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         viewController.presentViewController(alert, animated: true, completion: nil)
     }
     

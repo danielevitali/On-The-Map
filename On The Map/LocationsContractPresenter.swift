@@ -11,7 +11,7 @@ import Foundation
 protocol LocationsContractPresenter {
     
     var view: LocationsContractView {get}
-    var tabPresenter: LocationsTabContractPresenter {get set}
+    var tabPresenter: LocationsTabContractPresenter? {get set}
     
     func onRefreshLocationsClick()
     

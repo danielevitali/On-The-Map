@@ -8,11 +8,13 @@
 
 import Foundation
 
-protocol LocationsMapContractView {
+protocol LocationsMapContractView: LocationsTabContractView {
     
-    var presenter: LocationsMapContractPresenter! {get}
+    var presenter: LocationsMapContractPresenter! {get set}
     
     func toggleActivityIndicator(visible: Bool)
     
     func showLocations(studentLocations: [StudentLocation]?)
+    
+    func showError(message: String)
 }

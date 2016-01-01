@@ -8,12 +8,33 @@
 
 import Foundation
 
-class LocationsMapPresenter: LocationsMapContractPresenter, LocationsTabContractPresenter {
+class LocationsMapPresenter: LocationsMapContractPresenter {
     
-    private let view: LocationsMapContractView
+    let view: LocationsMapContractView
     
     init(view: LocationsMapContractView) {
         self.view = view
+    }
+    
+    func loadLocations() {
+        self.view.toggleActivityIndicator(true)
+        DataManager.getInstance().getStudentLocations { (studentLocations, errorMessage) in
+            self.view.toggleActivityIndicator(false)
+            if let studentLocations = studentLocations {
+                self.view.showLocations(studentLocations)
+            } else {
+                self.view.showError(errorMessage!)
+            }
+        }
+    }
+    
+    func refreshingLocations() {
+        view.toggleActivityIndicator(true)
+    }
+    
+    func showLocations(studentLocations: [StudentLocation]?) {
+        view.toggleActivityIndicator(false)
+        view.showLocations(studentLocations)
     }
     
 }

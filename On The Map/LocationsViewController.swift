@@ -9,15 +9,19 @@
 import Foundation
 import UIKit
 
-class LocationsViewController: UITabBarController, LocationsContractView{
-    
-    private static let SHOW_AUTHENTICATION_SEGUE_ID = "showAuthentication"
+class LocationsViewController: UITabBarController, LocationsContractView {
     
     var presenter: LocationsContractPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = LocationsPresenter(view: self, tabPresenter: )
+        presenter = LocationsPresenter(view: self)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let currentView = selectedViewController as! LocationsMapContractView
+        presenter.tabPresenter = currentView.presenter
     }
 
     @IBAction func onUpdateLocationClick(sender: AnyObject) {

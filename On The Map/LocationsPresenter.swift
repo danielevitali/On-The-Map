@@ -13,17 +13,16 @@ import FBSDKLoginKit
 class LocationsPresenter: LocationsContractPresenter {
     
     let view: LocationsContractView
-    var tabPresenter: LocationsTabContractPresenter
+    var tabPresenter: LocationsTabContractPresenter?
     
-    init(view: LocationsContractView, tabPresenter: LocationsTabContractPresenter) {
+    init(view: LocationsContractView) {
         self.view = view
-        self.tabPresenter = tabPresenter
     }
     
     func onRefreshLocationsClick() {
-        tabPresenter.refreshingLocations()
+        tabPresenter!.refreshingLocations()
         DataManager.getInstance().forceUpdateStudentLocations { (studentLocations, errorMessage) -> Void in
-            self.tabPresenter.showLocations(nil)
+            self.tabPresenter!.showLocations(nil)
             if let errorMessage = errorMessage {
                 self.view.showError(errorMessage)
             } else  {
@@ -31,7 +30,7 @@ class LocationsPresenter: LocationsContractPresenter {
                     self.view.showError("Unknown error")
                     return
                 }
-                self.tabPresenter.showLocations(studentLocations)
+                self.tabPresenter!.showLocations(studentLocations)
             }
         }
     }

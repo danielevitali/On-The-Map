@@ -23,22 +23,10 @@ class LocationsMapViewController: UIViewController, LocationsMapContractView, MK
         presenter = LocationsMapPresenter(view: self)
         map.delegate = self
         
-        DataManager.getInstance().getStudentLocations { (studentLocations, errorMessage) in
-            if let studentLocations = studentLocations {
-                self.studentLocations = studentLocations
-                self.map.removeAnnotations(self.map.annotations)
-
-                for studentLocation in studentLocations {
-                    let annotation = Pin(studentLocation: studentLocation)
-                    self.map.addAnnotation(annotation)
-                }
-            } else {
-                self.showError(errorMessage!)
-            }
-        }
+        presenter.loadLocations()
     }
     
-    private func showError(message: String) {
+    func showError(message: String) {
         ErrorAlert(message: message).show(self)
     }
     
@@ -71,7 +59,15 @@ class LocationsMapViewController: UIViewController, LocationsMapContractView, MK
     }
     
     func showLocations(studentLocations: [StudentLocation]?) {
-        //TODO show locations on map
+        self.studentLocations = studentLocations
+        self.map.removeAnnotations(self.map.annotations)
+        
+        if let studentLocations = studentLocations {
+            for studentLocation in studentLocations {
+                let annotation = Pin(studentLocation: studentLocation)
+                self.map.addAnnotation(annotation)
+            }
+        }
     }
     
 }

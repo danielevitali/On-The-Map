@@ -10,8 +10,10 @@ import Foundation
 
 protocol LocationsTabContractPresenter {
     
+    var view: LocationsMapContractView {get}
+    
     func refreshingLocations()
     
-    func locationsRefreshed(studentLocations: [StudentLocation]?)
+    func showLocations(studentLocations: [StudentLocation]?)
     
 }

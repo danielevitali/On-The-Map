@@ -2,12 +2,16 @@
 //  LocationsMapContractPresenter.swift
 //  On The Map
 //
-//  Created by Daniele Vitali on 12/28/15.
-//  Copyright © 2015 Daniele Vitali. All rights reserved.
+//  Created by Daniele Vitali on 1/1/16.
+//  Copyright © 2016 Daniele Vitali. All rights reserved.
 //
 
 import Foundation
 
-protocol LocationsMapContractPresenter {
+protocol LocationsMapContractPresenter: LocationsTabContractPresenter {
+    
+    var view: LocationsMapContractView {get}
+    
+    func loadLocations()
     
 }
