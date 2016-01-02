@@ -18,4 +18,6 @@ protocol LocationsTabContractPresenter {
     
     func showLocations(studentLocations: [StudentLocation]?)
     
+    func onStudentLocationClick(studentLocation: StudentLocation)
+    
 }

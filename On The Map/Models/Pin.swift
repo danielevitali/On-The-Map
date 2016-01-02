@@ -13,12 +13,14 @@ class Pin: NSObject, MKAnnotation {
     
     static let VIEW_ID = "pin"
     
+    let studentLocation: StudentLocation
     let coordinate: CLLocationCoordinate2D
     let title: String?
     let subtitle: String?
     let url: String?
     
     init(studentLocation: StudentLocation) {
+        self.studentLocation = studentLocation
         coordinate = CLLocationCoordinate2D(latitude: studentLocation.latitude, longitude: studentLocation.longitude)
         title = "\(studentLocation.firstName) \(studentLocation.lastName)"
         subtitle = studentLocation.address

@@ -25,6 +25,7 @@
 		6422FCD81C367B5200B40E47 /* LocationsTabContractPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6422FCD71C367B5200B40E47 /* LocationsTabContractPresenter.swift */; };
 		6422FCDC1C37043800B40E47 /* LocationsTabContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6422FCDB1C37043800B40E47 /* LocationsTabContractView.swift */; };
 		6422FCE51C37420D00B40E47 /* LocationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6422FCE41C37420D00B40E47 /* LocationsListViewController.swift */; };
+		6422FCE71C383B3C00B40E47 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6422FCE61C383B3C00B40E47 /* LocationCell.swift */; };
 		64367B6E1C2B010C0033AA71 /* AuthenticationContractPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64367B6D1C2B010C0033AA71 /* AuthenticationContractPresenter.swift */; };
 		64367B701C2B01BE0033AA71 /* AuthenticationContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64367B6F1C2B01BE0033AA71 /* AuthenticationContractView.swift */; };
 		64367B7B1C2B57EA0033AA71 /* AuthenticationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64367B7A1C2B57EA0033AA71 /* AuthenticationPresenter.swift */; };
@@ -86,6 +87,7 @@
 		6422FCD71C367B5200B40E47 /* LocationsTabContractPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsTabContractPresenter.swift; sourceTree = "<group>"; };
 		6422FCDB1C37043800B40E47 /* LocationsTabContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsTabContractView.swift; sourceTree = "<group>"; };
 		6422FCE41C37420D00B40E47 /* LocationsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsListViewController.swift; sourceTree = "<group>"; };
+		6422FCE61C383B3C00B40E47 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		64367B6D1C2B010C0033AA71 /* AuthenticationContractPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationContractPresenter.swift; sourceTree = "<group>"; };
 		64367B6F1C2B01BE0033AA71 /* AuthenticationContractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationContractView.swift; sourceTree = "<group>"; };
 		64367B761C2B52480033AA71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				64764DDE1C31D836009BF72D /* LocationsTabPresenter.swift */,
 				64764DDC1C31D80D009BF72D /* LocationsMapViewController.swift */,
 				6422FCE41C37420D00B40E47 /* LocationsListViewController.swift */,
+				6422FCE61C383B3C00B40E47 /* LocationCell.swift */,
 			);
 			name = Tabs;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				64367B6E1C2B010C0033AA71 /* AuthenticationContractPresenter.swift in Sources */,
 				640923611C31E67D00FEFD64 /* UserDefaultsUtils.swift in Sources */,
 				647351771C31A04C0031D218 /* StudentLocationResponse.swift in Sources */,
+				6422FCE71C383B3C00B40E47 /* LocationCell.swift in Sources */,
 				64367B7B1C2B57EA0033AA71 /* AuthenticationPresenter.swift in Sources */,
 				6436BDA41C2AFE0000CA3FCC /* AuthenticationViewController.swift in Sources */,
 				6436BDA21C2AFE0000CA3FCC /* AppDelegate.swift in Sources */,

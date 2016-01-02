@@ -176,10 +176,10 @@
             </objects>
             <point key="canvasLocation" x="1008" y="399"/>
         </scene>
-        <!--Item 2-->
+        <!--List-->
         <scene sceneID="WrT-Fj-zG1">
             <objects>
-                <viewController id="Z1k-sg-hao" customClass="LocationsListViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="List" id="Z1k-sg-hao" customClass="LocationsListViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DLV-dd-MbZ"/>
                         <viewControllerLayoutGuide type="bottom" id="sno-gw-WZn"/>
@@ -192,7 +192,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="studentsLocationCell" rowHeight="89" id="MIa-oy-xI5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationCell" rowHeight="89" id="MIa-oy-xI5" customClass="LocationCell" customModule="On_The_Map" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="89"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MIa-oy-xI5" id="AO7-r6-gju">
@@ -220,6 +220,9 @@
                                                 <constraint firstItem="duN-71-CQT" firstAttribute="leading" secondItem="AO7-r6-gju" secondAttribute="leadingMargin" id="oMm-kn-tZz"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblName" destination="CdG-GX-b2N" id="IZm-41-Zdk"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -249,7 +252,7 @@
                             <constraint firstItem="B4D-IR-LQH" firstAttribute="centerX" secondItem="KaX-jS-7OQ" secondAttribute="centerX" id="oBh-RU-Tpk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="vSe-fq-Ng9"/>
+                    <tabBarItem key="tabBarItem" title="List" id="vSe-fq-Ng9"/>
                     <connections>
                         <outlet property="activityIndicator" destination="nt0-LW-gX9" id="Y29-hu-GiG"/>
                         <outlet property="lblNoLocations" destination="B4D-IR-LQH" id="PKG-WI-829"/>
@@ -289,7 +292,7 @@
                             <constraint firstItem="Uks-hG-Ux9" firstAttribute="top" secondItem="5fQ-SA-e7k" secondAttribute="bottom" id="wbq-ch-aLg"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="dTl-eX-CKU"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="dTl-eX-CKU"/>
                     <connections>
                         <outlet property="activityIndicator" destination="I9w-xE-OOd" id="EUO-dd-dWM"/>
                         <outlet property="map" destination="Uks-hG-Ux9" id="ity-i1-l81"/>

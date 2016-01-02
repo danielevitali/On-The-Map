@@ -47,4 +47,9 @@ class LocationsViewController: UITabBarController, LocationsContractView {
     func showError(message: String) {
         ErrorAlert(message: message).show(self)
     }
+    
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+        let currentView = selectedViewController as! LocationsTabContractView
+        presenter.tabPresenter = currentView.presenter
+    }
 }

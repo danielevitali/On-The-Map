@@ -33,7 +33,14 @@ class LocationsListViewController: UIViewController, LocationsTabContractView, U
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+        let cell =  tableView.dequeueReusableCellWithIdentifier("locationCell")! as! LocationCell
+        let location = studentLocations![indexPath.row]
+        cell.setLocation(location)
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        presenter.onStudentLocationClick(studentLocations![indexPath.row])
     }
     
     func toggleActivityIndicator(visible: Bool) {
@@ -57,6 +64,10 @@ class LocationsListViewController: UIViewController, LocationsTabContractView, U
     
     func showError(message: String) {
         ErrorAlert(message: message).show(self)
+    }
+    
+    func showStudentUrl(url: NSURL) {
+        UIApplication.sharedApplication().openURL(url)
     }
     
 }

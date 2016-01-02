@@ -18,4 +18,6 @@ protocol LocationsTabContractView {
     
     func showError(message: String)
     
+    func showStudentUrl(url: NSURL)
+    
 }

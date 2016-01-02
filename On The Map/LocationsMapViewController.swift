@@ -45,9 +45,7 @@ class LocationsMapViewController: UIViewController, LocationsTabContractView, MK
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let pin = view.annotation as! Pin
-        if let url = pin.url {
-            UIApplication.sharedApplication().openURL(NSURL(string: url)!)
-        }
+        presenter.onStudentLocationClick(pin.studentLocation)
     }
     
     func toggleActivityIndicator(visible: Bool) {
@@ -68,6 +66,10 @@ class LocationsMapViewController: UIViewController, LocationsTabContractView, MK
                 self.map.addAnnotation(annotation)
             }
         }
+    }
+    
+    func showStudentUrl(url: NSURL) {
+        UIApplication.sharedApplication().openURL(url)
     }
     
 }

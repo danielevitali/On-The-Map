@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class LocationsTabPresenter: LocationsTabContractPresenter {
     
@@ -35,6 +36,15 @@ class LocationsTabPresenter: LocationsTabContractPresenter {
     func showLocations(studentLocations: [StudentLocation]?) {
         view.toggleActivityIndicator(false)
         view.showLocations(studentLocations)
+    }
+    
+    func onStudentLocationClick(studentLocation: StudentLocation) {
+        if let urlString = studentLocation.url {
+            let url = NSURL(string: urlString)
+            if let url = url {
+                self.view.showStudentUrl(url)
+            }
+        }
     }
     
 }

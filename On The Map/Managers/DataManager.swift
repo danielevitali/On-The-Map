@@ -11,7 +11,7 @@ class DataManager {
     private let networkHelper: NetworkHelper
 
     private var account: Account?
-    private var studentLocations: [StudentLocation]?
+    private var studentLocations: [String:StudentLocation]?
     
     class func getInstance() -> DataManager {
         return instance
@@ -84,16 +84,19 @@ class DataManager {
     
     func getStudentLocations(studentLocationsCompleteHandler: (studentLocations: [StudentLocation]?, errorMessage: String?) -> Void) {
         if let studentLocations = studentLocations {
-            return studentLocationsCompleteHandler(studentLocations: studentLocations, errorMessage: nil)
+            let locations = Array(studentLocations.values)
+            return studentLocationsCompleteHandler(studentLocations: locations, errorMessage: nil)
         } else {
             networkHelper.fetchStudentLocations { (studentLocationsResponse, errorResponse) in
                 if let studentLocationsResponse = studentLocationsResponse {
-                    self.studentLocations = [StudentLocation]()
+                    self.studentLocations = [String:StudentLocation]()
                     for studentLocationResponse in studentLocationsResponse.results {
-                        self.studentLocations!.append(StudentLocation(studentLocationResponse: studentLocationResponse))
+                        let location = StudentLocation(studentLocationResponse: studentLocationResponse)
+                        self.studentLocations![location.id] = location
                     }
+                    let locations = [StudentLocation](self.studentLocations!.values)
                     dispatch_async(dispatch_get_main_queue(), {
-                        studentLocationsCompleteHandler(studentLocations: self.studentLocations!, errorMessage: nil)
+                        studentLocationsCompleteHandler(studentLocations: locations, errorMessage: nil)
                     })
                 } else {
                     dispatch_async(dispatch_get_main_queue(), {
@@ -107,5 +110,26 @@ class DataManager {
     func forceUpdateStudentLocations(studentLocationsCompleteHandler: (studentLocations: [StudentLocation]?, errorMessage: String?) -> Void) {
         studentLocations = nil
         getStudentLocations(studentLocationsCompleteHandler)
+    }
+    
+    func getStudentLocation(id: String, studentLocationCompleteHandler: (studentLocation: StudentLocation?, errorMessage: String?) -> Void) {
+        if let studentLocations = studentLocations {
+            studentLocationCompleteHandler(studentLocation: studentLocations[id], errorMessage: nil)
+        } else {
+            networkHelper.fetchStudentLocation(id, callback: { (studentLocationResponse, errorResponse) in
+                if let studentLocationResponse = studentLocationResponse {
+                    self.studentLocations = [String:StudentLocation]()
+                    let location = StudentLocation(studentLocationResponse: studentLocationResponse)
+                    self.studentLocations![location.id] = location
+                    dispatch_async(dispatch_get_main_queue(), {
+                        studentLocationCompleteHandler(studentLocation: location, errorMessage: nil)
+                    })
+                } else {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        studentLocationCompleteHandler(studentLocation: nil, errorMessage: errorResponse!.error)
+                    })
+                }
+            })
+        }
     }
 }
