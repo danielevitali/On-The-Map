@@ -10,14 +10,14 @@ import Foundation
 
 class StudentLocation {
     
-    let id: String
-    let firstName: String
-    let lastName: String
-    let latitude: Double
-    let longitude: Double
-    let address: String
-    let url: String?
-    let userId: String
+    var id: String
+    var firstName: String
+    var lastName: String
+    var latitude: Double
+    var longitude: Double
+    var address: String
+    var url: String?
+    var userId: String
     
     init(studentLocationResponse: StudentLocationResponse) {
         self.id = studentLocationResponse.objectId
@@ -30,7 +30,6 @@ class StudentLocation {
         if let mediaUrl = studentLocationResponse.mediaUrl {
             setUrl(mediaUrl)
         }
-        self.url = nil
     }
     
     init(id: String, firstName: String, lastName: String, latitude: Double, longitude: Double, address: String, url: String?, userId: String) {
@@ -41,11 +40,13 @@ class StudentLocation {
         self.longitude = longitude
         self.address = address
         self.userId = userId
-        setUrl(url)
+        if let url = url {
+            setUrl(url)
+        }
     }
     
     private func setUrl(url: String) {
-        if NSURL(string: mediaUrl) != nil {
+        if NSURL(string: url) != nil {
             self.url = url
             return
         }

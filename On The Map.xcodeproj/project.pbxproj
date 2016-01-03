@@ -336,12 +336,12 @@
 		6436BDCF1C2AFE7A00CA3FCC /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				6422FCE81C394EE000B40E47 /* Post Location */,
-				646DFE221C318C8A0042F5D8 /* Locations */,
-				6436BDA51C2AFE0000CA3FCC /* Main.storyboard */,
-				6436BDAA1C2AFE0000CA3FCC /* LaunchScreen.storyboard */,
-				64367B6B1C2B00C00033AA71 /* Login */,
 				6422FCD51C36758700B40E47 /* ErrorAlert.swift */,
+				6436BDAA1C2AFE0000CA3FCC /* LaunchScreen.storyboard */,
+				646DFE221C318C8A0042F5D8 /* Locations */,
+				64367B6B1C2B00C00033AA71 /* Login */,
+				6436BDA51C2AFE0000CA3FCC /* Main.storyboard */,
+				6422FCE81C394EE000B40E47 /* Post Location */,
 			);
 			name = UI;
 			sourceTree = "<group>";

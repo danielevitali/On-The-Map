@@ -140,7 +140,7 @@ class DataManager {
             if let locationId = account.locationId {
                 networkHelper.editStudentLocation(locationId, studentLocationRequest: studentLocationRequest, callback: { (editStudentLocationResponse, errorResponse) in
                     if editStudentLocationResponse != nil {
-                        let userLocation = StudentLocation(id: account!.locationId, firstName: account!.firstName, lastName: account!.lastName, latitude: coordinate.latitude, longitude: coordinate.longitude, address: address, url: url, userId: account!.id)
+                        let userLocation = StudentLocation(id: self.account!.locationId!, firstName: self.account!.firstName, lastName: self.account!.lastName, latitude: coordinate.latitude, longitude: coordinate.longitude, address: address, url: url, userId: self.account!.id)
                         dispatch_async(dispatch_get_main_queue(), {
                             updateLocationCompleteHandler(userLocation: userLocation, errorMessage: nil)
                         })
@@ -154,7 +154,7 @@ class DataManager {
                 networkHelper.postStudentLocation(studentLocationRequest, callback: { (postStudentLocationResponse, errorResponse) in
                     if let postStudentLocationResponse = postStudentLocationResponse {
                         self.account!.locationId = postStudentLocationResponse.objectId
-                        let userLocation = StudentLocation(id: account!.locationId, firstName: account!.firstName, lastName: account!.lastName, latitude: coordinate.latitude, longitude: coordinate.longitude, address: address, url: url, userId: account!.id)
+                        let userLocation = StudentLocation(id: postStudentLocationResponse.objectId, firstName: self.account!.firstName, lastName: self.account!.lastName, latitude: coordinate.latitude, longitude: coordinate.longitude, address: address, url: url, userId: self.account!.id)
                         dispatch_async(dispatch_get_main_queue(), {
                             updateLocationCompleteHandler(userLocation: userLocation, errorMessage: nil)
                         })
@@ -166,12 +166,12 @@ class DataManager {
                 })
             }
         } else {
-            updateLocationCompleteHandler(account: nil, errorMessage: "You have to been logged in")
+            updateLocationCompleteHandler(userLocation: nil, errorMessage: "You have to been logged in")
         }
     }
     
     private func addUserToStudentLocations(userLocation: StudentLocation) {
-        if let studentLocations = studentLocations {
+        if var studentLocations = studentLocations {
             studentLocations[userLocation.id] = userLocation
         }
     }

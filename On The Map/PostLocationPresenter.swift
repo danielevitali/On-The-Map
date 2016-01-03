@@ -38,7 +38,7 @@ class PostLocationPresenter: PostLocationContractPresenter {
                 let placemark = placemarks[0] as CLPlacemark
                 if let location = placemark.location {
                     self.coordinate = location.coordinate
-                    self.address = "\(placemark.locality), \(placemark.country)"
+                    self.address = "\(placemark.locality!), \(placemark.country!)"
                     self.showPlaceFoundUI(location.coordinate)
                 } else {
                     self.view.showError("Place not found")
@@ -55,22 +55,26 @@ class PostLocationPresenter: PostLocationContractPresenter {
         view.swapFindPlaceWithSubmitButton()
     }
     
-    func onSubmitClick(url urlString: String) {
+    func onSubmitClick(url: String) {
         view.toggleActivityIndicator(true)
-        if let url = NSURL(string: urlString) {
-            DataManager.getInstance().setStudentLocation(coordinate!, address: address!, url: url, { (account, errorMessage) in
-                self.view.toggleActivityIndicator(false)
-                if let errorMessage = errorMessage {
-                    self.view.showError(errorMessage)
-                } else  {
-                    guard account != nil else {
-                        self.view.showError("Unknown error")
-                        return
-                    }
-                    self.view.dismissView()
-                }
-            })
+        
+        guard url != "" && NSURL(string: url) != nil else {
+            view.showError("Type a valid URL")
+            return
         }
+        
+        DataManager.getInstance().setStudentLocation(coordinate!, address: address!, url: url, updateLocationCompleteHandler: { (account, errorMessage) in
+            self.view.toggleActivityIndicator(false)
+            if let errorMessage = errorMessage {
+                self.view.showError(errorMessage)
+            } else  {
+                guard account != nil else {
+                    self.view.showError("Unknown error")
+                    return
+                }
+                self.view.dismissView()
+            }
+        })
     }
     
 }

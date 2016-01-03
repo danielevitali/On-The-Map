@@ -53,7 +53,8 @@ class PostLocationViewController: UIViewController, PostLocationContractView {
     
     private func animateAddressFieldAndMap(){
         UIView.animateWithDuration(700, animations: { () in
-            self.map.frame.size.height = self.tfAddress.frame.size.height
+            self.map.frame = CGRectMake(self.map.frame.origin.x , self.map.frame.origin.y, self.map.frame.width, self.tfAddress.frame.height)
+            self.map.layoutIfNeeded()
         })
     }
     

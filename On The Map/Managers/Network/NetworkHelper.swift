@@ -41,7 +41,7 @@ class NetworkHelper {
             (data, response, error) in
             if let response = response, let data = data{
                 let json = self.extractUdacityJson(data)
-                if response.statusCode == 200 {
+                if self.isSuccessResponse(response.statusCode) {
                     let newSessionResponse = NewSessionResponse(response: json)
                     callback(newSessionResponse: newSessionResponse, errorResponse: nil)
                 } else {
@@ -61,7 +61,7 @@ class NetworkHelper {
             (data, response, error) in
             if let response = response, let data = data{
                 let json = self.extractUdacityJson(data)
-                if response.statusCode == 200 {
+                if self.isSuccessResponse(response.statusCode) {
                     let newSessionResponse = NewSessionResponse(response: json)
                     callback(newSessionResponse: newSessionResponse, errorResponse: nil)
                 } else {
@@ -82,7 +82,7 @@ class NetworkHelper {
             (data, response, error) in
             if let response = response, let data = data{
                 let json = self.extractUdacityJson(data)
-                if response.statusCode == 200 {
+                if self.isSuccessResponse(response.statusCode) {
                     let fetchUserDataResponse = FetchUserDataResponse(response: json)
                     callback(fetchUserDataResponse: fetchUserDataResponse, errorResponse: nil)
                 } else {
@@ -102,7 +102,7 @@ class NetworkHelper {
             (data, response, error) in
             if let response = response, let data = data{
                 let json = self.extractUdacityJson(data)
-                if response.statusCode == 200 {
+                if self.isSuccessResponse(response.statusCode) {
                     let deleteSessionResponse = DeleteSessionResponse(response: json)
                     callback(deleteSessionResponse: deleteSessionResponse, errorResponse: nil)
                 } else {
@@ -122,7 +122,7 @@ class NetworkHelper {
             (data, response, error) in
             if let response = response, let data = data{
                 let json = self.extractParseJson(data)
-                if response.statusCode == 200 {
+                if self.isSuccessResponse(response.statusCode) {
                     let studentLocationsResponse = StudentLocationsResponse(response: json)
                     callback(studentLocationsResponse: studentLocationsResponse, errorResponse: nil)
                 } else {
@@ -142,7 +142,7 @@ class NetworkHelper {
             (data, response, error) in
             if let response = response, let data = data{
                 let json = self.extractParseJson(data)
-                if response.statusCode == 200 {
+                if self.isSuccessResponse(response.statusCode) {
                     let studentLocationsResponse = StudentLocationsResponse(response: json)
                     callback(studentLocationsResponse: studentLocationsResponse, errorResponse: nil)
                 } else {
@@ -163,7 +163,7 @@ class NetworkHelper {
             (data, response, error) in
             if let response = response, let data = data{
                 let json = self.extractParseJson(data)
-                if response.statusCode == 200 {
+                if self.isSuccessResponse(response.statusCode) {
                     let studentLocationResponse = StudentLocationResponse(response: json)
                     callback(studentLocationResponse: studentLocationResponse, errorResponse: nil)
                 } else {
@@ -178,12 +178,12 @@ class NetworkHelper {
     }
     
     func postStudentLocation(studentLocationRequest: StudentLocationRequest, callback: (postStudentLocationResponse: PostStudentLocationResponse?, errorResponse: ErrorResponse?) -> Void) {
-        let url = buildParseUrl(NetworkHelper.PARSE_STUDENT_LOCATION_PATH, params: nil)
+        let url = buildParseUrl(NetworkHelper.PARSE_STUDENT_LOCATIONS_PATH, params: nil)
         executeParsePostRequest(url, body: studentLocationRequest.convertToJson(), completionHandler: {
             (data, response, error) in
             if let response = response, let data = data{
                 let json = self.extractParseJson(data)
-                if response.statusCode == 200 {
+                if self.isSuccessResponse(response.statusCode) {
                     let postStudentLocationResponse = PostStudentLocationResponse(response: json)
                     callback(postStudentLocationResponse: postStudentLocationResponse, errorResponse: nil)
                 } else {
@@ -204,7 +204,7 @@ class NetworkHelper {
             (data, response, error) in
             if let response = response, let data = data{
                 let json = self.extractParseJson(data)
-                if response.statusCode == 200 {
+                if self.isSuccessResponse(response.statusCode) {
                     let editStudentLocationResponse = EditStudentLocationResponse(response: json)
                     callback(editStudentLocationResponse: editStudentLocationResponse, errorResponse: nil)
                 } else {
@@ -331,5 +331,9 @@ class NetworkHelper {
         var path = oldPath
         path.replaceRange(path.rangeOfString("{id}")!, with: id)
         return path
+    }
+    
+    private func isSuccessResponse(statusCode: Int) -> Bool {
+        return statusCode/100 == 2
     }
 }
