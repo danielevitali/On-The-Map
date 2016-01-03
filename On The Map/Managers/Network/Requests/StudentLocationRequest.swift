@@ -15,10 +15,10 @@ class StudentLocationRequest {
     let lastName: String
     let mapString: String
     let mediaUrl: String
-    let latitude: Float
-    let longitude: Float
+    let latitude: Double
+    let longitude: Double
     
-    init(uniqueKey: String, firstName: String, lastName: String, mapString: String, mediaUrl: String, latitude: Float, longitude: Float) {
+    init(uniqueKey: String, firstName: String, lastName: String, mapString: String, mediaUrl: String, latitude: Double, longitude: Double) {
         self.uniqueKey = uniqueKey
         self.firstName = firstName
         self.lastName = lastName

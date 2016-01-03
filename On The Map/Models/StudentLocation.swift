@@ -17,7 +17,7 @@ class StudentLocation {
     let longitude: Double
     let address: String
     let url: String?
-    let uniqueKey: String
+    let userId: String
     
     init(studentLocationResponse: StudentLocationResponse) {
         self.id = studentLocationResponse.objectId
@@ -26,17 +26,29 @@ class StudentLocation {
         self.latitude = studentLocationResponse.latitude
         self.longitude = studentLocationResponse.longitude
         self.address = studentLocationResponse.mapString
-        self.uniqueKey = studentLocationResponse.uniqueKey
-        
+        self.userId = studentLocationResponse.uniqueKey
         if let mediaUrl = studentLocationResponse.mediaUrl {
-            
-            //Check that media URL is actually a valid URL
-            if NSURL(string: mediaUrl) != nil {
-                self.url = studentLocationResponse.mediaUrl
-                return
-            }
+            setUrl(mediaUrl)
         }
         self.url = nil
     }
     
+    init(id: String, firstName: String, lastName: String, latitude: Double, longitude: Double, address: String, url: String?, userId: String) {
+        self.id = id
+        self.firstName = firstName
+        self.lastName = lastName
+        self.latitude = latitude
+        self.longitude = longitude
+        self.address = address
+        self.userId = userId
+        setUrl(url)
+    }
+    
+    private func setUrl(url: String) {
+        if NSURL(string: mediaUrl) != nil {
+            self.url = url
+            return
+        }
+        self.url = nil
+    }
 }

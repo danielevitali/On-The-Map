@@ -13,6 +13,8 @@ import FBSDKLoginKit
 
 class AuthenticationPresenter: AuthenticationContractPresenter {
 
+    private static let EMAIL_REGEX = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+    
     let view: AuthenticationContractView
 
     init(view: AuthenticationContractView) {
@@ -72,8 +74,7 @@ class AuthenticationPresenter: AuthenticationContractPresenter {
     }
 
     private func isValidEmail(email: String) -> Bool {
-        let emailRegEx = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
-        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", AuthenticationPresenter.EMAIL_REGEX)
         return emailTest.evaluateWithObject(email)
     }
 

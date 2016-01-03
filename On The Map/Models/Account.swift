@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class Account: NSObject, NSCoding {
 
@@ -16,6 +17,7 @@ class Account: NSObject, NSCoding {
     var firstName: String!
     var lastName: String!
     var nickname: String!
+    var locationId: String?
 
     init(id: String) {
         self.id = id

@@ -177,23 +177,43 @@ class NetworkHelper {
         })
     }
     
-    func changeStudentLocation(id: String, studentLocationRequest: StudentLocationRequest, callback: (studentLocationsResponse: StudentLocationsResponse?, errorResponse: ErrorResponse?) -> Void) {
-        let path = replacePlaceholderPathWithId(path: NetworkHelper.PARSE_STUDENT_LOCATION_PATH, id: id)
+    func postStudentLocation(studentLocationRequest: StudentLocationRequest, callback: (postStudentLocationResponse: PostStudentLocationResponse?, errorResponse: ErrorResponse?) -> Void) {
+        let url = buildParseUrl(NetworkHelper.PARSE_STUDENT_LOCATION_PATH, params: nil)
+        executeParsePostRequest(url, body: studentLocationRequest.convertToJson(), completionHandler: {
+            (data, response, error) in
+            if let response = response, let data = data{
+                let json = self.extractParseJson(data)
+                if response.statusCode == 200 {
+                    let postStudentLocationResponse = PostStudentLocationResponse(response: json)
+                    callback(postStudentLocationResponse: postStudentLocationResponse, errorResponse: nil)
+                } else {
+                    let errorResponse = ErrorResponse(response: json)
+                    callback(postStudentLocationResponse: nil, errorResponse: errorResponse)
+                }
+            } else {
+                let errorResponse = ErrorResponse(error: error!)
+                callback(postStudentLocationResponse: nil, errorResponse: errorResponse)
+            }
+        })
+    }
+    
+    func editStudentLocation(locationId: String, studentLocationRequest: StudentLocationRequest, callback: (editStudentLocationResponse: EditStudentLocationResponse?, errorResponse: ErrorResponse?) -> Void) {
+        let path = replacePlaceholderPathWithId(path: NetworkHelper.PARSE_STUDENT_LOCATION_PATH, id: locationId)
         let url = buildParseUrl(path, params: nil)
         executeParsePutRequest(url, body: studentLocationRequest.convertToJson(), completionHandler: {
             (data, response, error) in
             if let response = response, let data = data{
                 let json = self.extractParseJson(data)
                 if response.statusCode == 200 {
-                    let studentLocationsResponse = StudentLocationsResponse(response: json)
-                    callback(studentLocationsResponse: studentLocationsResponse, errorResponse: nil)
+                    let editStudentLocationResponse = EditStudentLocationResponse(response: json)
+                    callback(editStudentLocationResponse: editStudentLocationResponse, errorResponse: nil)
                 } else {
                     let errorResponse = ErrorResponse(response: json)
-                    callback(studentLocationsResponse: nil, errorResponse: errorResponse)
+                    callback(editStudentLocationResponse: nil, errorResponse: errorResponse)
                 }
             } else {
                 let errorResponse = ErrorResponse(error: error!)
-                callback(studentLocationsResponse: nil, errorResponse: errorResponse)
+                callback(editStudentLocationResponse: nil, errorResponse: errorResponse)
             }
         })
     }
