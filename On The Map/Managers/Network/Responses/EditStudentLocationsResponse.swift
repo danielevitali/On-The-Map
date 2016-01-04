@@ -13,6 +13,6 @@ class EditStudentLocationResponse {
     let createdAt: String
     
     init(response: NSDictionary) {
-        createdAt = response["createdAt"] as! String
+        createdAt = response["updatedAt"] as! String
     }
 }

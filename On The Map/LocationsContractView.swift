@@ -16,6 +16,6 @@ protocol LocationsContractView {
     
     func showUpdateUserLocation()
     
-    func showAuthentication()
+    func dismissView()
     
 }

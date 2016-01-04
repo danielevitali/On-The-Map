@@ -20,6 +20,8 @@ class LocationsViewController: UITabBarController, LocationsContractView {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController!.navigationBarHidden = false
+        
         let currentView = selectedViewController as! LocationsTabContractView
         presenter.tabPresenter = currentView.presenter
     }
@@ -40,13 +42,8 @@ class LocationsViewController: UITabBarController, LocationsContractView {
         performSegueWithIdentifier("updateUserLocationSegue", sender: self)
     }
     
-    func showAuthentication() {
-        //Since the app can start with different VC, I have to check which is the window root VC
-        if UIApplication.sharedApplication().windows[0].rootViewController is AuthenticationViewController {
-            dismissViewControllerAnimated(true, completion: nil)
-        } else {
-            performSegueWithIdentifier("authenticationSegue", sender: self)
-        }
+    func dismissView() {
+        navigationController!.popViewControllerAnimated(true)
     }
     
     func showError(message: String) {

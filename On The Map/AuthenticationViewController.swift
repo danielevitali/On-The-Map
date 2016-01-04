@@ -10,7 +10,7 @@ import UIKit
 
 class AuthenticationViewController: UIViewController, UITextFieldDelegate, AuthenticationContractView {
 
-    private static let SHOW_MAP_SEGUE_ID = "showMap"
+    private static let SHOW_LOCATIONS_SEGUE_ID = "showLocationsSegue"
     private static let BTN_UDACITY_LOGIN_TEXT = "LOGIN WITH UDACITY"
     private static let BTN_FACEBOOK_LOGIN_TEXT = "LOGIN WITH FACEBOOK"
 
@@ -33,6 +33,11 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate, Authe
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController!.navigationBarHidden = true
     }
 
     @IBAction func onUdacityLoginClick(sender: AnyObject) {
@@ -107,7 +112,7 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate, Authe
     }
 
     func showMap() {
-        performSegueWithIdentifier(AuthenticationViewController.SHOW_MAP_SEGUE_ID, sender: self)
+        performSegueWithIdentifier(AuthenticationViewController.SHOW_LOCATIONS_SEGUE_ID, sender: self)
     }
     
 }
