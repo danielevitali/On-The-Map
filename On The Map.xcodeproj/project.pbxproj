@@ -304,6 +304,8 @@
 		6436BDA01C2AFE0000CA3FCC /* On The Map */ = {
 			isa = PBXGroup;
 			children = (
+				6436BDA51C2AFE0000CA3FCC /* Main.storyboard */,
+				6436BDAA1C2AFE0000CA3FCC /* LaunchScreen.storyboard */,
 				6409235F1C31E66100FEFD64 /* Utils */,
 				6436BDCF1C2AFE7A00CA3FCC /* UI */,
 				6436BDA11C2AFE0000CA3FCC /* AppDelegate.swift */,
@@ -337,10 +339,8 @@
 			isa = PBXGroup;
 			children = (
 				6422FCD51C36758700B40E47 /* ErrorAlert.swift */,
-				6436BDAA1C2AFE0000CA3FCC /* LaunchScreen.storyboard */,
 				646DFE221C318C8A0042F5D8 /* Locations */,
 				64367B6B1C2B00C00033AA71 /* Login */,
-				6436BDA51C2AFE0000CA3FCC /* Main.storyboard */,
 				6422FCE81C394EE000B40E47 /* Post Location */,
 			);
 			name = UI;

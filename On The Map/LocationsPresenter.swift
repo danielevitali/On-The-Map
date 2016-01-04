@@ -36,7 +36,7 @@ class LocationsPresenter: LocationsContractPresenter {
     }
     
     func onUpdateUserLocationClick() {
-        view.showUpdateLocation()
+        view.showUpdateUserLocation()
     }
     
     func onLogoutClick() {

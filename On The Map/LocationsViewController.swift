@@ -36,12 +36,17 @@ class LocationsViewController: UITabBarController, LocationsContractView {
         presenter.onLogoutClick()
     }
     
-    func showUpdateLocation() {
-        
+    func showUpdateUserLocation() {
+        performSegueWithIdentifier("updateUserLocationSegue", sender: self)
     }
     
     func showAuthentication() {
-        dismissViewControllerAnimated(true, completion: nil)
+        //Since the app can start with different VC, I have to check which is the window root VC
+        if UIApplication.sharedApplication().windows[0].rootViewController is AuthenticationViewController {
+            dismissViewControllerAnimated(true, completion: nil)
+        } else {
+            performSegueWithIdentifier("authenticationSegue", sender: self)
+        }
     }
     
     func showError(message: String) {

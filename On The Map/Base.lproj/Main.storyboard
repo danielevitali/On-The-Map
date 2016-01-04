@@ -409,7 +409,7 @@
                             <constraint firstItem="B4D-IR-LQH" firstAttribute="centerX" secondItem="KaX-jS-7OQ" secondAttribute="centerX" id="oBh-RU-Tpk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="List" id="vSe-fq-Ng9"/>
+                    <tabBarItem key="tabBarItem" title="List" image="ic_list" id="vSe-fq-Ng9"/>
                     <connections>
                         <outlet property="activityIndicator" destination="nt0-LW-gX9" id="Y29-hu-GiG"/>
                         <outlet property="lblNoLocations" destination="B4D-IR-LQH" id="PKG-WI-829"/>
@@ -449,7 +449,7 @@
                             <constraint firstItem="Uks-hG-Ux9" firstAttribute="top" secondItem="5fQ-SA-e7k" secondAttribute="bottom" id="wbq-ch-aLg"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="dTl-eX-CKU"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="ic_map" id="dTl-eX-CKU"/>
                     <connections>
                         <outlet property="activityIndicator" destination="I9w-xE-OOd" id="EUO-dd-dWM"/>
                         <outlet property="map" destination="Uks-hG-Ux9" id="ity-i1-l81"/>
@@ -475,10 +475,9 @@
                                     <action selector="onRefreshClick:" destination="7lg-mx-ZXU" id="O7d-BP-Mxc"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" id="diC-fZ-yT2">
+                            <barButtonItem image="ic_pin" id="diC-fZ-yT2">
                                 <connections>
                                     <action selector="onUpdateLocationClick:" destination="7lg-mx-ZXU" id="67J-ca-Qi2"/>
-                                    <segue destination="8qF-X8-SPC" kind="modal" id="8qp-e6-opU"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -491,6 +490,8 @@
                     <connections>
                         <segue destination="NfM-PJ-H9f" kind="relationship" relationship="viewControllers" id="qaL-tp-yiG"/>
                         <segue destination="Z1k-sg-hao" kind="relationship" relationship="viewControllers" id="9yc-V3-PH2"/>
+                        <segue destination="8qF-X8-SPC" kind="modal" identifier="updateUserLocationSegue" id="E2h-iX-oNP"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="authenticationSegue" id="LK4-mh-yhF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4U8-dH-WdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -499,6 +500,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_list" width="25" height="25"/>
+        <image name="ic_map" width="23" height="23"/>
+        <image name="ic_pin" width="16" height="24"/>
         <image name="pin" width="60" height="102"/>
     </resources>
 </document>

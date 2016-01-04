@@ -14,7 +14,7 @@ protocol LocationsContractView {
     
     func showError(message: String)
     
-    func showUpdateLocation()
+    func showUpdateUserLocation()
     
     func showAuthentication()
     
