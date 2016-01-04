@@ -98,7 +98,7 @@ class AuthenticationPresenter: AuthenticationContractPresenter {
         })
     }
     
-    /*
+    /* TODO
     HOW CAN I EXTRACT THE SAME CODE IN userInfoCompleteHandler FOR THE ABOVE AND BELOW FUNCTIONS INTO A SINGLE CLOSURE? SO THAT I DON'T HAVE TO WRITE THE SAME CODE TWICE.
     */
     

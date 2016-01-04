@@ -9,13 +9,14 @@
 import Foundation
 import UIKit
 
-class LocationsViewController: UITabBarController, LocationsContractView {
+class LocationsViewController: UITabBarController, UITabBarControllerDelegate, LocationsContractView {
     
     var presenter: LocationsContractPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = LocationsPresenter(view: self)
+        delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -55,7 +55,7 @@ class LocationsListViewController: UIViewController, LocationsTabContractView, U
         self.studentLocations = studentLocations
         tblLocations.reloadData()
         
-        if studentLocations != nil || studentLocations!.count == 0 {
+        if let studentLocations = studentLocations where studentLocations.count > 0 {
             lblNoLocations.hidden = true
         } else {
             lblNoLocations.hidden = false

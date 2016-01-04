@@ -260,6 +260,14 @@
 			name = Contract;
 			sourceTree = "<group>";
 		};
+		643471051C3B38B800335F57 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				6422FCD51C36758700B40E47 /* ErrorAlert.swift */,
+			);
+			name = Commons;
+			sourceTree = "<group>";
+		};
 		64367B6B1C2B00C00033AA71 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,7 +346,7 @@
 		6436BDCF1C2AFE7A00CA3FCC /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				6422FCD51C36758700B40E47 /* ErrorAlert.swift */,
+				643471051C3B38B800335F57 /* Commons */,
 				646DFE221C318C8A0042F5D8 /* Locations */,
 				64367B6B1C2B00C00033AA71 /* Login */,
 				6422FCE81C394EE000B40E47 /* Post Location */,
