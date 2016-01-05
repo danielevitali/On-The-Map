@@ -49,8 +49,10 @@ class StudentsListViewController: UIViewController, StudentsTabContractView, UIT
     func toggleActivityIndicator(visible: Bool) {
         if visible {
             activityIndicator.startAnimating()
+            tblLocations.alpha = 0.5
         } else {
             activityIndicator.stopAnimating()
+            tblLocations.alpha = 1
         }
     }
     

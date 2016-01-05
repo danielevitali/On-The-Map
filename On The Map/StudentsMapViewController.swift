@@ -54,8 +54,10 @@ class StudentsMapViewController: UIViewController, StudentsTabContractView, MKMa
     func toggleActivityIndicator(visible: Bool) {
         if visible {
             activityIndicator.startAnimating()
+            map.alpha = 0.5
         } else {
             activityIndicator.stopAnimating()
+            map.alpha = 1
         }
     }
     

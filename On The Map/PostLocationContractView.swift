@@ -24,4 +24,8 @@ protocol PostLocationContractView {
     func dismissView()
     
     func toggleActivityIndicator(visible: Bool)
+    
+    func disableUIForFindingPlace()
+    
+    func enableUI()
 }

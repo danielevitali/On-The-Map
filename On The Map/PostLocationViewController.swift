@@ -59,6 +59,7 @@ class PostLocationViewController: UIViewController, PostLocationContractView {
     func showLinkInput() {
         lblPlace.hidden = true
         tfLink.hidden = false
+        map.hidden = false
     }
     
     func swapFindPlaceWithSubmitButton() {
@@ -82,4 +83,17 @@ class PostLocationViewController: UIViewController, PostLocationContractView {
         }
     }
     
+    func disableUIForFindingPlace() {
+        btnFindPlace.enabled = false
+        btnFindPlace.alpha = 0.5
+        tfAddress.enabled = false
+        tfAddress.alpha = 0.5
+    }
+    
+    func enableUI() {
+        btnFindPlace.enabled = true
+        btnFindPlace.alpha = 1
+        tfAddress.enabled = true
+        tfAddress.alpha = 1
+    }
 }

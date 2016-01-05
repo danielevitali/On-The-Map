@@ -29,8 +29,10 @@ class PostLocationPresenter: PostLocationContractPresenter {
             return
         }
         view.toggleActivityIndicator(true)
+        view.disableUIForFindingPlace()
         CLGeocoder().geocodeAddressString(address, completionHandler: { (placemarks, error) in
             self.view.toggleActivityIndicator(false)
+            self.view.enableUI()
             if let error = error {
                 self.view.showError(error.localizedDescription)
                 return
