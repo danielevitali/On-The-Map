@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StudentLocationRequest {
+class StudentInformationRequest {
 
     let uniqueKey: String
     let firstName: String

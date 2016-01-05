@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StudentLocation {
+class StudentInformation {
     
     var id: String
     var firstName: String
@@ -18,27 +18,31 @@ class StudentLocation {
     var address: String
     var url: String?
     var userId: String
+    var lastUpdate: NSDate
     
-    init(studentLocationResponse: StudentLocationResponse) {
-        self.id = studentLocationResponse.objectId
-        self.firstName = studentLocationResponse.firstName
-        self.lastName = studentLocationResponse.lastName
-        self.latitude = studentLocationResponse.latitude
-        self.longitude = studentLocationResponse.longitude
-        self.address = studentLocationResponse.mapString
-        self.userId = studentLocationResponse.uniqueKey
-        if let mediaUrl = studentLocationResponse.mediaUrl {
+    init(studentInformationResponse: StudentInformationResponse) {
+        self.id = studentInformationResponse.objectId
+        self.firstName = studentInformationResponse.firstName
+        self.lastName = studentInformationResponse.lastName
+        self.latitude = studentInformationResponse.latitude
+        self.longitude = studentInformationResponse.longitude
+        self.address = studentInformationResponse.mapString
+        self.userId = studentInformationResponse.uniqueKey
+        self.lastUpdate = studentInformationResponse.updateAt
+        
+        if let mediaUrl = studentInformationResponse.mediaUrl {
             setUrl(mediaUrl)
         }
     }
     
-    init(id: String, firstName: String, lastName: String, latitude: Double, longitude: Double, address: String, url: String?, userId: String) {
+    init(id: String, firstName: String, lastName: String, latitude: Double, longitude: Double, address: String, url: String?, userId: String, lastUpdate: NSDate) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
         self.latitude = latitude
         self.longitude = longitude
         self.address = address
+        self.lastUpdate = lastUpdate
         self.userId = userId
         if let url = url {
             setUrl(url)

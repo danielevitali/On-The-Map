@@ -10,12 +10,16 @@ import Foundation
 
 class PostStudentLocationResponse {
     
+    private static let DATE_FORMAT = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSS'Z'"
+    
     let objectId: String
-    let createdAt: String
+    let createdAt: NSDate
     
     init(response: NSDictionary) {
         objectId = response["objectId"] as! String
-        createdAt = response["createdAt"] as! String
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = PostStudentLocationResponse.DATE_FORMAT
+        createdAt = dateFormatter.dateFromString(response["createdAt"] as! String)!
     }
     
 }

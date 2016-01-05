@@ -10,7 +10,7 @@ import UIKit
 
 class AuthenticationViewController: UIViewController, UITextFieldDelegate, AuthenticationContractView {
 
-    private static let SHOW_LOCATIONS_SEGUE_ID = "showLocationsSegue"
+    private static let SHOW_LOCATIONS_SEGUE_ID = "showStudentsSegue"
     private static let BTN_UDACITY_LOGIN_TEXT = "LOGIN WITH UDACITY"
     private static let BTN_FACEBOOK_LOGIN_TEXT = "LOGIN WITH FACEBOOK"
 
@@ -38,6 +38,12 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate, Authe
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationController!.navigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        tfEmail.text = ""
+        tfPassword.text = ""
     }
 
     @IBAction func onUdacityLoginClick(sender: AnyObject) {

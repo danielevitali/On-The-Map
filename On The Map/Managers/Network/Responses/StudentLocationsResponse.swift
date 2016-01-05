@@ -8,15 +8,15 @@
 
 import Foundation
 
-class StudentLocationsResponse {
+class StudentInformationArrayResponse {
     
-    var results: [StudentLocationResponse]
+    var results: [StudentInformationResponse]
     
     init(response: NSDictionary) {
-        self.results = [StudentLocationResponse]()
+        self.results = [StudentInformationResponse]()
         let array = response["results"] as! NSArray
         for element in array {
-            results.append(StudentLocationResponse(response: element as! NSDictionary))
+            results.append(StudentInformationResponse(response: element as! NSDictionary))
         }
     }
     

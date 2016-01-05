@@ -10,20 +10,23 @@ import Foundation
 import UIKit
 import MapKit
 
-class LocationsMapViewController: UIViewController, LocationsTabContractView, MKMapViewDelegate {
+class StudentsMapViewController: UIViewController, StudentsTabContractView, MKMapViewDelegate {
     
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var presenter: LocationsTabContractPresenter!
-    var studentLocations: [StudentLocation]?
+    var presenter: StudentsTabContractPresenter!
+    var studentsInformation: [StudentInformation]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = LocationsTabPresenter(view: self)
+        presenter = StudentsTabPresenter(view: self)
         map.delegate = self
-        
-        presenter.loadLocations()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.loadStudentsInformation()
     }
     
     func showError(message: String) {
@@ -45,7 +48,7 @@ class LocationsMapViewController: UIViewController, LocationsTabContractView, MK
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let pin = view.annotation as! Pin
-        presenter.onStudentLocationClick(pin.studentLocation)
+        presenter.onStudentInformationClick(pin.studentInformation)
     }
     
     func toggleActivityIndicator(visible: Bool) {
@@ -56,14 +59,14 @@ class LocationsMapViewController: UIViewController, LocationsTabContractView, MK
         }
     }
     
-    func showLocations(studentLocations: [StudentLocation]?) {
-        self.studentLocations = studentLocations
+    func showStudentsInformation(studentsInformation: [StudentInformation]?) {
+        self.studentsInformation = studentsInformation
         self.map.removeAnnotations(self.map.annotations)
         
-        if let studentLocations = studentLocations {
-            for studentLocation in studentLocations {
-                let annotation = Pin(studentLocation: studentLocation)
-                self.map.addAnnotation(annotation)
+        if let studentsInformation = studentsInformation {
+            for studentInformation in studentsInformation {
+                let pin = Pin(studentInformation: studentInformation)
+                self.map.addAnnotation(pin)
             }
         }
     }

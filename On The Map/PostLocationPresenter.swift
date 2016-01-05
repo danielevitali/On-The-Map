@@ -63,12 +63,12 @@ class PostLocationPresenter: PostLocationContractPresenter {
             return
         }
         
-        DataManager.getInstance().setStudentLocation(coordinate!, address: address!, url: url, updateLocationCompleteHandler: { (account, errorMessage) in
+        DataManager.getInstance().setStudentInformation(coordinate, address: address, url: url, updateInformationCompleteHandler: { (userInformation, errorMessage) in
             self.view.toggleActivityIndicator(false)
             if let errorMessage = errorMessage {
                 self.view.showError(errorMessage)
             } else  {
-                guard account != nil else {
+                guard userInformation != nil else {
                     self.view.showError("Unknown error")
                     return
                 }

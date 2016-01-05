@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol LocationsContractPresenter {
+protocol StudentsContractPresenter {
     
-    var view: LocationsContractView {get}
-    var tabPresenter: LocationsTabContractPresenter? {get set}
+    var view: StudentsContractView {get}
+    var tabPresenter: StudentsTabContractPresenter? {get set}
     
-    func onRefreshLocationsClick()
+    func onRefreshStudentsInformationClick()
     
     func onUpdateUserLocationClick()
     

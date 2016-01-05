@@ -13,30 +13,23 @@ class Pin: NSObject, MKAnnotation {
     
     static let VIEW_ID = "pin"
     
-    var studentLocation: StudentLocation
+    var studentInformation: StudentInformation
     var coordinate: CLLocationCoordinate2D
     var title: String?
     var subtitle: String?
-    var url: String?
     
-    init(studentLocation: StudentLocation) {
-        self.studentLocation = studentLocation
-        coordinate = CLLocationCoordinate2D(latitude: studentLocation.latitude, longitude: studentLocation.longitude)
-        title = "\(studentLocation.firstName) \(studentLocation.lastName)"
-        subtitle = studentLocation.address
-        url = studentLocation.url
+    init(studentInformation: StudentInformation) {
+        self.studentInformation = studentInformation
+        coordinate = CLLocationCoordinate2D(latitude: studentInformation.latitude, longitude: studentInformation.longitude)
+        title = "\(studentInformation.firstName) \(studentInformation.lastName)"
+        subtitle = studentInformation.url
     }
     
     func createAnnotationView() -> MKPinAnnotationView {
         let pinView = MKPinAnnotationView(annotation: self, reuseIdentifier: Pin.VIEW_ID)
         pinView.pinTintColor = UIColor.blueColor()
-        
-        if url == nil {
-            pinView.canShowCallout = false
-        } else {
-            pinView.canShowCallout = true
-            pinView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
-        }
+        pinView.canShowCallout = true
+        pinView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
         return pinView
     }
 }

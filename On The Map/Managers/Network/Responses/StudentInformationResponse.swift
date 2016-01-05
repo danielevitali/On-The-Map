@@ -8,7 +8,9 @@
 
 import Foundation
 
-class StudentLocationResponse {
+class StudentInformationResponse {
+    
+    private static let DATE_FORMAT = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSS'Z'"
     
     let objectId: String
     let firstName: String
@@ -18,6 +20,7 @@ class StudentLocationResponse {
     let latitude: Double
     let longitude: Double
     let uniqueKey: String
+    let updateAt: NSDate
     
     init(response: NSDictionary) {
         objectId = response["objectId"] as! String
@@ -28,6 +31,9 @@ class StudentLocationResponse {
         latitude = response["latitude"] as! Double
         longitude = response["longitude"] as! Double
         uniqueKey = response["uniqueKey"] as! String
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = StudentInformationResponse.DATE_FORMAT
+        updateAt = dateFormatter.dateFromString(response["updatedAt"] as! String)!
     }
     
 }

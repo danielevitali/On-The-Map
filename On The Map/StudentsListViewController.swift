@@ -9,38 +9,41 @@
 import Foundation
 import UIKit
 
-class LocationsListViewController: UIViewController, LocationsTabContractView, UITableViewDelegate, UITableViewDataSource {
+class StudentsListViewController: UIViewController, StudentsTabContractView, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tblLocations: UITableView!
     @IBOutlet weak var lblNoLocations: UILabel!
     
-    var presenter: LocationsTabContractPresenter!
-    var studentLocations: [StudentLocation]?
+    var presenter: StudentsTabContractPresenter!
+    var studentsInformation: [StudentInformation]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = LocationsTabPresenter(view: self)
-        
-        presenter.loadLocations()
+        presenter = StudentsTabPresenter(view: self)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.loadStudentsInformation()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let studentLocations = studentLocations {
-            return studentLocations.count
+        if let studentsInformation = studentsInformation {
+            return studentsInformation.count
         }
         return 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCellWithIdentifier("locationCell")! as! LocationCell
-        let location = studentLocations![indexPath.row]
-        cell.setLocation(location)
+        let cell =  tableView.dequeueReusableCellWithIdentifier("studentCell")! as! StudentCell
+        let info = studentsInformation![indexPath.row]
+        cell.setStudentInformation(info)
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        presenter.onStudentLocationClick(studentLocations![indexPath.row])
+        presenter.onStudentInformationClick(studentsInformation![indexPath.row])
     }
     
     func toggleActivityIndicator(visible: Bool) {
@@ -51,11 +54,11 @@ class LocationsListViewController: UIViewController, LocationsTabContractView, U
         }
     }
     
-    func showLocations(studentLocations: [StudentLocation]?) {
-        self.studentLocations = studentLocations
+    func showStudentsInformation(studentsInformation: [StudentInformation]?) {
+        self.studentsInformation = studentsInformation
         tblLocations.reloadData()
         
-        if let studentLocations = studentLocations where studentLocations.count > 0 {
+        if let studentsInformation = studentsInformation where studentsInformation.count > 0 {
             lblNoLocations.hidden = true
         } else {
             lblNoLocations.hidden = false

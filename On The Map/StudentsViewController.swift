@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-class LocationsViewController: UITabBarController, UITabBarControllerDelegate, LocationsContractView {
+class StudentsViewController: UITabBarController, UITabBarControllerDelegate, StudentsContractView {
     
-    var presenter: LocationsContractPresenter!
+    var presenter: StudentsContractPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = LocationsPresenter(view: self)
+        presenter = StudentsPresenter(view: self)
         delegate = self
     }
     
@@ -23,7 +23,7 @@ class LocationsViewController: UITabBarController, UITabBarControllerDelegate, L
         super.viewWillAppear(animated)
         navigationController!.navigationBarHidden = false
         
-        let currentView = selectedViewController as! LocationsTabContractView
+        let currentView = selectedViewController as! StudentsTabContractView
         presenter.tabPresenter = currentView.presenter
     }
 
@@ -32,7 +32,7 @@ class LocationsViewController: UITabBarController, UITabBarControllerDelegate, L
     }
     
     @IBAction func onRefreshClick(sender: AnyObject) {
-        presenter.onRefreshLocationsClick()
+        presenter.onRefreshStudentsInformationClick()
     }
     
     @IBAction func onLogoutClick(sender: AnyObject) {
@@ -40,7 +40,7 @@ class LocationsViewController: UITabBarController, UITabBarControllerDelegate, L
     }
     
     func showUpdateUserLocation() {
-        performSegueWithIdentifier("updateUserLocationSegue", sender: self)
+    performSegueWithIdentifier("updateUserLocationSegue", sender: self)
     }
     
     func dismissView() {
@@ -52,7 +52,7 @@ class LocationsViewController: UITabBarController, UITabBarControllerDelegate, L
     }
     
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
-        let currentView = selectedViewController as! LocationsTabContractView
+        let currentView = selectedViewController as! StudentsTabContractView
         presenter.tabPresenter = currentView.presenter
     }
 }

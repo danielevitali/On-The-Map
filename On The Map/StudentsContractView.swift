@@ -8,9 +8,9 @@
 
 import Foundation
 
-protocol LocationsContractView {
+protocol StudentsContractView {
     
-    var presenter: LocationsContractPresenter! {get}
+    var presenter: StudentsContractPresenter! {get}
     
     func showError(message: String)
     
