@@ -42,20 +42,13 @@ class PostLocationViewController: UIViewController, PostLocationContractView {
     
     func showMapWithLocation(coordinate: CLLocationCoordinate2D) {
         addAnnotationonMap(coordinate)
-        animateAddressFieldAndMap()
+        tfAddress.hidden = true
     }
     
     private func addAnnotationonMap(coordinate: CLLocationCoordinate2D) {
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
         map.addAnnotation(annotation)
-    }
-    
-    private func animateAddressFieldAndMap(){
-        UIView.animateWithDuration(700, animations: { () in
-            self.map.frame = CGRectMake(self.map.frame.origin.x , self.map.frame.origin.y, self.map.frame.width, self.tfAddress.frame.height)
-            self.map.layoutIfNeeded()
-        })
     }
     
     func showLinkInput() {
