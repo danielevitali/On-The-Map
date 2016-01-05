@@ -11,6 +11,7 @@ import Foundation
 protocol StudentsTabContractPresenter {
     
     var view: StudentsTabContractView {get}
+    var studentsInformation: [StudentInformation]? {get set}
     
     func loadStudentsInformation()
     

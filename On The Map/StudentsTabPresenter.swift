@@ -12,6 +12,7 @@ import UIKit
 class StudentsTabPresenter: StudentsTabContractPresenter {
     
     let view: StudentsTabContractView
+    var studentsInformation: [StudentInformation]?
     
     init(view: StudentsTabContractView) {
         self.view = view
@@ -21,10 +22,11 @@ class StudentsTabPresenter: StudentsTabContractPresenter {
         self.view.toggleActivityIndicator(true)
         DataManager.getInstance().getStudentsInformation({ (studentsInformation, errorMessage) in
             self.view.toggleActivityIndicator(false)
-            if let studentsInformation = studentsInformation {
-                self.view.showStudentsInformation(studentsInformation)
+            self.studentsInformation = studentsInformation
+            if let errorMessage = errorMessage {
+                self.view.showError(errorMessage)
             } else {
-                self.view.showError(errorMessage!)
+                self.view.showStudentsInformation()
             }
         })
     }
@@ -35,15 +37,13 @@ class StudentsTabPresenter: StudentsTabContractPresenter {
     
     func showStudentsInformation(studentsInformation: [StudentInformation]?) {
         view.toggleActivityIndicator(false)
-        view.showStudentsInformation(studentsInformation)
+        self.studentsInformation = studentsInformation
+        view.showStudentsInformation()
     }
     
     func onStudentInformationClick(studentInformation: StudentInformation) {
-        if let urlString = studentInformation.url {
-            let url = NSURL(string: urlString)
-            if let url = url {
-                self.view.showStudentUrl(url)
-            }
+        if let url = studentInformation.url {
+            self.view.showStudentUrl(url)
         }
     }
     

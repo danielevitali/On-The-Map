@@ -16,7 +16,6 @@ class StudentsListViewController: UIViewController, StudentsTabContractView, UIT
     @IBOutlet weak var lblNoLocations: UILabel!
     
     var presenter: StudentsTabContractPresenter!
-    var studentsInformation: [StudentInformation]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +28,7 @@ class StudentsListViewController: UIViewController, StudentsTabContractView, UIT
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let studentsInformation = studentsInformation {
+        if let studentsInformation = presenter.studentsInformation {
             return studentsInformation.count
         }
         return 0
@@ -37,13 +36,13 @@ class StudentsListViewController: UIViewController, StudentsTabContractView, UIT
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCellWithIdentifier("studentCell")! as! StudentCell
-        let info = studentsInformation![indexPath.row]
+        let info = presenter.studentsInformation![indexPath.row]
         cell.setStudentInformation(info)
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        presenter.onStudentInformationClick(studentsInformation![indexPath.row])
+        presenter.onStudentInformationClick(presenter.studentsInformation![indexPath.row])
     }
     
     func toggleActivityIndicator(visible: Bool) {
@@ -56,8 +55,8 @@ class StudentsListViewController: UIViewController, StudentsTabContractView, UIT
         }
     }
     
-    func showStudentsInformation(studentsInformation: [StudentInformation]?) {
-        self.studentsInformation = studentsInformation
+    func showStudentsInformation() {
+        let studentsInformation = presenter.studentsInformation
         tblLocations.reloadData()
         
         if let studentsInformation = studentsInformation where studentsInformation.count > 0 {

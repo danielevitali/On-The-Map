@@ -289,9 +289,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Xse-nZ-vE7">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
-                            </activityIndicatorView>
                             <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="50x-c5-xIq">
                                 <rect key="frame" x="0.0" y="214" width="600" height="306"/>
                             </mapView>
@@ -301,13 +298,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                             </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Xse-nZ-vE7">
+                                <rect key="frame" x="290" y="357" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.0078431372549019607" green="0.53333333333333333" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Xse-nZ-vE7" firstAttribute="centerY" secondItem="aiH-Yo-r9i" secondAttribute="centerY" id="0eZ-OR-fix"/>
                             <constraint firstItem="50x-c5-xIq" firstAttribute="top" secondItem="aiH-Yo-r9i" secondAttribute="bottom" id="4aK-Sr-3lY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UFF-Dn-sfo" secondAttribute="trailing" constant="-20" id="57z-2I-cCy"/>
                             <constraint firstItem="50x-c5-xIq" firstAttribute="leading" secondItem="dAD-ha-Ahe" secondAttribute="leading" id="6JN-WH-Kdz"/>
                             <constraint firstItem="50x-c5-xIq" firstAttribute="top" secondItem="0X9-4Y-9Bh" secondAttribute="bottom" id="8Ho-xb-t2g"/>
+                            <constraint firstItem="Xse-nZ-vE7" firstAttribute="centerX" secondItem="aiH-Yo-r9i" secondAttribute="centerX" id="8KT-Tt-P6j"/>
                             <constraint firstItem="aiH-Yo-r9i" firstAttribute="top" secondItem="0X9-4Y-9Bh" secondAttribute="bottom" id="AcH-xf-Q1S"/>
                             <constraint firstItem="aiH-Yo-r9i" firstAttribute="top" secondItem="GHy-uf-F60" secondAttribute="bottom" id="BMK-56-ISV"/>
                             <constraint firstItem="GHy-uf-F60" firstAttribute="top" secondItem="UFF-Dn-sfo" secondAttribute="bottom" id="EJQ-fG-gJO"/>
@@ -346,6 +348,8 @@
                                 <exclude reference="BMK-56-ISV"/>
                                 <exclude reference="VoH-dL-W3h"/>
                                 <exclude reference="ydO-P0-BKJ"/>
+                                <exclude reference="ZcK-d1-HoC"/>
+                                <exclude reference="ZiJ-kV-4yp"/>
                                 <exclude reference="Kcg-gi-xwo"/>
                                 <exclude reference="UAx-Ks-ATJ"/>
                             </mask>

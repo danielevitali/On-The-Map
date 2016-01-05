@@ -16,7 +16,6 @@ class StudentsMapViewController: UIViewController, StudentsTabContractView, MKMa
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var presenter: StudentsTabContractPresenter!
-    var studentsInformation: [StudentInformation]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,11 +60,9 @@ class StudentsMapViewController: UIViewController, StudentsTabContractView, MKMa
         }
     }
     
-    func showStudentsInformation(studentsInformation: [StudentInformation]?) {
-        self.studentsInformation = studentsInformation
+    func showStudentsInformation() {
         self.map.removeAnnotations(self.map.annotations)
-        
-        if let studentsInformation = studentsInformation {
+        if let studentsInformation = presenter.studentsInformation {
             for studentInformation in studentsInformation {
                 let pin = Pin(studentInformation: studentInformation)
                 self.map.addAnnotation(pin)

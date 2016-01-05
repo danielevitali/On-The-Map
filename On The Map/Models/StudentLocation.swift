@@ -8,7 +8,9 @@
 
 import Foundation
 
-class StudentInformation {
+struct StudentInformation {
+    
+    private static let DATE_FORMAT = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSS'Z'"
     
     var id: String
     var firstName: String
@@ -16,7 +18,7 @@ class StudentInformation {
     var latitude: Double
     var longitude: Double
     var address: String
-    var url: String?
+    var url: NSURL?
     var userId: String
     var lastUpdate: NSDate
     
@@ -31,11 +33,27 @@ class StudentInformation {
         self.lastUpdate = studentInformationResponse.updateAt
         
         if let mediaUrl = studentInformationResponse.mediaUrl {
-            setUrl(mediaUrl)
+            url = NSURL(string: mediaUrl)
         }
     }
     
-    init(id: String, firstName: String, lastName: String, latitude: Double, longitude: Double, address: String, url: String?, userId: String, lastUpdate: NSDate) {
+    init(response: NSDictionary) {
+        id = response["objectId"] as! String
+        firstName = response["firstName"] as! String
+        lastName = response["lastName"] as! String
+        address = response["mapString"] as! String
+        if let mediaUrl = response["mediaURL"] as? String {
+            url = NSURL(string: mediaUrl)
+        }
+        latitude = response["latitude"] as! Double
+        longitude = response["longitude"] as! Double
+        userId = response["uniqueKey"] as! String
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = StudentInformation.DATE_FORMAT
+        lastUpdate = dateFormatter.dateFromString(response["updatedAt"] as! String)!
+    }
+    
+    init(id: String, firstName: String, lastName: String, latitude: Double, longitude: Double, address: String, url: NSURL?, userId: String, lastUpdate: NSDate) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
@@ -44,16 +62,6 @@ class StudentInformation {
         self.address = address
         self.lastUpdate = lastUpdate
         self.userId = userId
-        if let url = url {
-            setUrl(url)
-        }
-    }
-    
-    private func setUrl(url: String) {
-        if NSURL(string: url) != nil {
-            self.url = url
-            return
-        }
-        self.url = nil
+        self.url = url
     }
 }

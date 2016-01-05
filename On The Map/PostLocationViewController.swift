@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 
-class PostLocationViewController: UIViewController, PostLocationContractView {
+class PostLocationViewController: UIViewController, PostLocationContractView, UITextFieldDelegate {
     
     private static let MAP_ZOOM_LATITUDE_DELTA = 0.05
     private static let MAP_ZOOM_LONGITUDE_DELTA = 0.05
@@ -23,24 +23,40 @@ class PostLocationViewController: UIViewController, PostLocationContractView {
     @IBOutlet weak var tfLink: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
     var presenter: PostLocationContractPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = PostLocationPresenter(view: self)
+        
+        tfAddress.delegate = self
+        tfLink.delegate = self
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func onSubmitClick(sender: AnyObject) {
         presenter.onSubmitClick(tfLink.text!)
+        dismissKeyboard()
     }
     
     @IBAction func onFindPlaceClick(sender: AnyObject) {
         presenter.onFindPlaceClick(tfAddress.text!)
+        dismissKeyboard()
     }
     
     @IBAction func onCancelClick(sender: AnyObject) {
         presenter.onCancelClick()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return false
     }
     
     func showMapWithLocation(coordinate: CLLocationCoordinate2D) {

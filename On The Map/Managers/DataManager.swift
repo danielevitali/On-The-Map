@@ -153,7 +153,7 @@ class DataManager {
             if let studentInformationId = account.studentInformationId {
                 networkHelper.editStudentInformation(studentInformationId, studentInformationRequest: studentInformationRequest, callback: { (editStudentInformationResponse, errorResponse) in
                     if let editStudentInformationResponse = editStudentInformationResponse {
-                        let userInformation = StudentInformation(id: self.account!.studentInformationId!, firstName: self.account!.firstName, lastName: self.account!.lastName, latitude: coordinate.latitude, longitude: coordinate.longitude, address: address, url: url, userId: self.account!.id, lastUpdate: editStudentInformationResponse.updatedAt)
+                        let userInformation = StudentInformation(id: self.account!.studentInformationId!, firstName: self.account!.firstName, lastName: self.account!.lastName, latitude: coordinate.latitude, longitude: coordinate.longitude, address: address, url: NSURL(string: url), userId: self.account!.id, lastUpdate: editStudentInformationResponse.updatedAt)
                         self.addToStudentsInformation(userInformation)
                         dispatch_async(dispatch_get_main_queue(), {
                             updateInformationCompleteHandler(userInformation: userInformation, errorMessage: nil)
@@ -169,7 +169,7 @@ class DataManager {
                     if let postStudentInformationResponse = postStudentInformationResponse {
                         self.account!.studentInformationId = postStudentInformationResponse.objectId
                         UserDefaultsUtils.saveAccount(self.account!)
-                        let userInformation = StudentInformation(id: postStudentInformationResponse.objectId, firstName: self.account!.firstName, lastName: self.account!.lastName, latitude: coordinate.latitude, longitude: coordinate.longitude, address: address, url: url, userId: self.account!.id, lastUpdate: postStudentInformationResponse.createdAt)
+                        let userInformation = StudentInformation(id: postStudentInformationResponse.objectId, firstName: self.account!.firstName, lastName: self.account!.lastName, latitude: coordinate.latitude, longitude: coordinate.longitude, address: address, url: NSURL(string: url), userId: self.account!.id, lastUpdate: postStudentInformationResponse.createdAt)
                         self.addToStudentsInformation(userInformation)
                         dispatch_async(dispatch_get_main_queue(), {
                             updateInformationCompleteHandler(userInformation: userInformation, errorMessage: nil)

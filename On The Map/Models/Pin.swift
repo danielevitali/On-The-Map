@@ -22,7 +22,7 @@ class Pin: NSObject, MKAnnotation {
         self.studentInformation = studentInformation
         coordinate = CLLocationCoordinate2D(latitude: studentInformation.latitude, longitude: studentInformation.longitude)
         title = "\(studentInformation.firstName) \(studentInformation.lastName)"
-        subtitle = studentInformation.url
+        subtitle = studentInformation.url?.absoluteString
     }
     
     func createAnnotationView() -> MKPinAnnotationView {

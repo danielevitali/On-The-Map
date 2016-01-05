@@ -14,7 +14,7 @@ protocol StudentsTabContractView {
     
     func toggleActivityIndicator(visible: Bool)
     
-    func showStudentsInformation(studentsInformation: [StudentInformation]?)
+    func showStudentsInformation()
     
     func showError(message: String)
     
